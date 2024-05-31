@@ -7,22 +7,20 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mybook/dialog/loading_dialog.dart';
-
 import 'package:firebase_auth/firebase_auth.dart';
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/dialog/success_dialog.dart';
 
-class AdminScreen extends StatefulWidget {
-  const AdminScreen({super.key});
+class PostBookScreen extends StatefulWidget {
+  const PostBookScreen({super.key});
 
   @override
-  State<AdminScreen> createState() => _AdminScreenState();
+  State<PostBookScreen> createState() => _PostBookScreenState();
 }
 
-class _AdminScreenState extends State<AdminScreen> {
+class _PostBookScreenState extends State<PostBookScreen> {
   XFile? image;
   bool? textscanning;
   String textscanner="No image to show";

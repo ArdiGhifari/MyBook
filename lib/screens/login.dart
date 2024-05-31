@@ -1,11 +1,7 @@
-import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/screens/register.dart';
 import 'package:mybook/screens/mybook.dart';
