@@ -55,6 +55,50 @@ void addorremovebookmark(bool isadding)
   );
 }
 
+void Bookmarkadd(iconbtn)async
+{
+  try{
+    if(iconbtn)
+    {
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion({user!.email!})});
+    }
+    else{
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove({user!.email!})});
+    }
+  }
+  catch(e){
+    showDialog(
+      context: context, 
+      builder: (context){
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            AlertDialog(
+              title: Center(
+                child: Text('Error', style: TextStyle(fontSize: 30),)),
+              content: Column(
+                children: [
+                Icon(Icons.cancel, color: Colors.red, size: 130,),
+                SizedBox(height: 12,),
+                Center(child: Text('Try again',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),)),
+                ],
+              ),
+              actions: [
+                TextButton(
+                  onPressed: (){
+                    Navigator.pop(context);
+                  }, child: Text('oke'))
+              ],
+            )
+          ],
+        );
+      }
+      );
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,11 +123,10 @@ void addorremovebookmark(bool isadding)
           InkWell(
 
             onTap: (){
-
               setState(() {
                 iconbtn1=!iconbtn1!;
                 addorremovebookmark(iconbtn1!);
-                Bookmarked(iconbtn1);
+                Bookmarkadd(iconbtn1);
               });
             },
             child: Container(

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mybook/constant.dart';
 import 'package:mybook/screens/favorite_screen.dart';
@@ -13,6 +14,9 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final user=FirebaseAuth.instance.currentUser;
+  String? username;
+  String? userinitial;
   @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use

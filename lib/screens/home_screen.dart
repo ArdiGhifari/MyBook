@@ -18,7 +18,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final user=FirebaseAuth.instance.currentUser;
 String? username;
-String? userintial;
+String? userinitial;
 
   final GlobalKey<ScaffoldState> _scaffoldkey=GlobalKey<ScaffoldState>();
 
@@ -28,7 +28,7 @@ String? userintial;
   @override
   void initState(){
     username=user!.email;
-    userintial=username!.isNotEmpty?username![0]:"Un";
+    userinitial=username!.isNotEmpty?username![0]:"Un";
   }
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,7 +75,7 @@ String? userintial;
                   backgroundColor: Colors.indigo,
                   child: Center(
                     child: Text(
-                      userintial!,
+                      userinitial!,
 
                       style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.bold  ),
                     ),

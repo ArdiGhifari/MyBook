@@ -86,10 +86,10 @@ class _PopularBooksState extends State<PopularBooks> {
   }
 }
 
-class PopularBook extends StatelessWidget{
+class PopularBooks extends StatelessWidget{
   final String author;
   final String link;
-  final String Booktitle;
+  final String booktitle;
   final double rating;
   final String description;
   final String id;
@@ -98,7 +98,7 @@ class PopularBook extends StatelessWidget{
   PopularBook({
     required this.author,
     required this.link,
-    required this.Booktitle,
+    required this.booktitle,
     required this.rating,
     required this.description,
     required this.id,
@@ -119,7 +119,7 @@ Widget build(BuildContext context){
           Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author:author,
             link:link,
-            booktitle:Booktitle,
+            booktitle:booktitle,
             bookrating:rating,
             description:description,
             id:id,
@@ -160,7 +160,7 @@ Widget build(BuildContext context){
             ),
             SizedBox(height: 12,),
             Text(
-              Booktitle,
+              booktitle,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.poppins(

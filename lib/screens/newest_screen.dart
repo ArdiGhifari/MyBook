@@ -16,10 +16,10 @@ class Newest extends StatefulWidget {
   const Newest({super.key});
 
   @override
-  State<Newest> createState() => _NewestBooksState();
+  State<Newest> createState() => _NewestState();
 }
 
-class _NewestBooksState extends State<Newest> {
+class _NewestState extends State<Newest> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,14 +54,14 @@ class _NewestBooksState extends State<Newest> {
                   final docid = message.id;
                   final bookmarks = message.data()['Bookmarks'];
 
-                  final Widget messagewidget = Newest(
+                  final Widget messagewidget = NewestBooks(
                     author: author,
                     link: link,
-                    bookmarks: bookmarks,
-                    Booktitle: booktitle,
+                    booktitle: booktitle,
                     rating: rating,
                     description: description,
                     id: docid,
+                    bookmarks: bookmarks,
 
                   );
                 messagewidgets.add(messagewidget);
@@ -87,26 +87,34 @@ class _NewestBooksState extends State<Newest> {
   }
 }
 
-class Newst extends StatefulWidget {
-   Newst({required this.author,required this.bookrating,required this.link,required this.booktitle,required this.rating,required this.description,required this.id,required this.bookmarks, this.onBookmarkChanged});
-
-
+class NewestBooks extends StatefulWidget {
+  
   final String author;
   final String link;
   final String booktitle;
-  final double bookrating;
   final String rating;
   final String description;
   final String id;
   final List<dynamic> bookmarks;
-  final Function(bool)? onBookmarkChanged;
-       
+
+
+   const NewestBooks({
+    required this.author,
+    required this.link,
+    required this.booktitle,
+    required this.rating,
+    required this.description,
+    required this.id,
+    required this.bookmarks
+    });
+
+  
 
   @override
-  State<Newst> createState() => _NewstState();
+  State<NewestBooks> createState() => _NewestBooksState();
 }
 
-class _NewstState extends State<Newst> {
+class _NewestBooksState extends State<NewestBooks> {
       bool? iconbtn;
       User? user = FirebaseAuth.instance.currentUser;
 
@@ -124,7 +132,7 @@ void addorremovebookmark(bool isadding)
   );
 }
 
-void bookMarked(iconbtn)async
+void Bookmarkadd(iconbtn)async
 {
   try{
     if(iconbtn)
@@ -132,7 +140,7 @@ void bookMarked(iconbtn)async
       await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion({user!.email!})});
     }
     else{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove({user!.email!})});
     }
   }
   catch(e){
@@ -176,8 +184,6 @@ void bookMarked(iconbtn)async
       if(widget.bookmarks.contains(user!.email!)){
 
         setState(() {
-          
-
           iconbtn = true;
         });
       }
@@ -305,7 +311,7 @@ void bookMarked(iconbtn)async
                         setState(() {
                           iconbtn=!iconbtn!;
                           addorremovebookmark(iconbtn!);
-                          Bookmarked(iconbtn);
+                          Bookmarkadd(iconbtn);
                         });
                       },
                       child: iconbtn!? Icon(
