@@ -57,9 +57,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     final docid=message.id;
                     final bookmarks= data!['Bookmarks'];
 
-                    if (bookmarks.contains(user!.email!)){
-                      
-                      final Widget messagewidget = Newst(
+                    if (bookmarks.contains(user!.email!))
+                    {
+                      final Widget messagewidget = Newest(
                         author: author, 
                         bookrating: bookrating, 
                         link: link, 
@@ -70,7 +70,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         bookmarks: bookmarks,
                         checkbookmarks: checkbookmark,
                         index:i
-                        );
+                    );
 
                         messagewidgets.add(messagewidget);
                     }
@@ -99,32 +99,43 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   }
 }
 
-class Newst extends StatefulWidget {
-  const Newst({required this.author,required this.bookrating,required this.link,required this.booktitle,required this.rating,required this.description,required this.id,required this.bookmarks, required this.checkbookmarks, required this.index});
-
-
+class Newest extends StatefulWidget {
   final String author;
   final String link;
   final String booktitle;
   final double bookrating;
-  final String rating;
+  final double rating;
   final String description;
   final String id;
   final List<dynamic> bookmarks;
   final List<bool> checkbookmarks;
   final int index;
+
+  const Newest({
+    required this.author,
+    required this.bookrating,
+    required this.link,
+    required this.booktitle,
+    required this.rating,
+    required this.description,
+    required this.id,
+    required this.bookmarks, 
+    required this.checkbookmarks, 
+    required this.index
+  });
+  
   
   @override
-  State<Newst> createState() => _NewstState();
+  State<Newest> createState() => _NewstState();
 }
 
-class _NewstState extends State<Newst> {
+class _NewstState extends State<Newest> {
   final _firestore=FirebaseFirestore.instance;
   final user=FirebaseAuth.instance.currentUser;
 
   void addorremovebookmark(bool isadding)
   {
-    String message=isadding?'bookmark added':'Bookmarl remove';
+    String message=isadding?'Bookmark Added':'Bookmark Removed';
     Fluttertoast.showToast(
     msg: message,
     toastLength: Toast.LENGTH_SHORT,
@@ -136,7 +147,7 @@ class _NewstState extends State<Newst> {
   );
   }
 
-  void Bookmarked() async
+  void Bookmarkadd() async
   {
     try{
       await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
@@ -165,7 +176,7 @@ class _NewstState extends State<Newst> {
                       onPressed: (){
                         Navigator.pop(context);
                       } ,
-                       child: Text('ok'))
+                       child: Text('Ok'))
                   ],
               ),
             ],
@@ -187,7 +198,6 @@ class _NewstState extends State<Newst> {
         onTap: (){
           Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author: widget.author, 
-            bookrating: widget.bookrating, 
             link: widget.link, 
             booktitle: widget.booktitle, 
             bookrating: widget.rating, 
@@ -280,7 +290,7 @@ class _NewstState extends State<Newst> {
                       setState(() {
                         widget.checkbookmarks[widget.index]=!widget.checkbookmarks[widget.index];
                         addorremovebookmark(widget.checkbookmarks[widget.index]);
-                        Bookmarked();
+                        Bookmarkadd();
                       });
                     },
                     child: widget.checkbookmarks[widget.index]? Icon(
