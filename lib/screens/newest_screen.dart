@@ -6,20 +6,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mybook/aboutbook.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mybook/screens/detail_screen.dart';
 
 
 final _firestore=FirebaseFirestore.instance;
 
-class NewstBooks extends StatefulWidget {
-  const NewstBooks({super.key});
+class Newest extends StatefulWidget {
+  const Newest({super.key});
 
   @override
-  State<NewstBooks> createState() => _NewstBooksState();
+  State<Newest> createState() => _NewestBooksState();
 }
 
-class _NewstBooksState extends State<NewstBooks> {
+class _NewestBooksState extends State<Newest> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -54,7 +54,7 @@ class _NewstBooksState extends State<NewstBooks> {
                   final docid = message.id;
                   final bookmarks = message.data()['Bookmarks'];
 
-                  final Widget messagewidget = NewstBooks(
+                  final Widget messagewidget = Newest(
                     author: author,
                     link: link,
                     bookmarks: bookmarks,
@@ -208,7 +208,7 @@ void bookMarked(iconbtn)async
         ),
         child: GestureDetector(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Aboutbook(
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
               author:widget.author,
               link:widget.link,
               booktitle:widget.booktitle,

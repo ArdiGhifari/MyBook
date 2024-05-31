@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:mybook/login.dart';
+import 'package:mybook/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:mybook/errordialog.dart';
-import 'package:mybook/mybook.dart';
+import 'package:mybook/dialog/error_dialog.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
