@@ -6,12 +6,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mybook/errordialog.dart';
-import 'package:mybook/mybook.dart';
-import 'package:mybook/register.dart';
-import 'package:mybook/admin.dart';
-
-import 'package:mybook/errordialog.dart';
+import 'package:mybook/dialog/error_dialog.dart';
+import 'package:mybook/screens/register.dart';
+import 'package:mybook/screens/mybook.dart';
+import 'package:mybook/screens/post_book_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -227,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   context: context, 
                                                   builder: (e){
                                                     return ErrorDialog(
-                                                      message: "tolong masukan email dan paswar properly",
+                                                      message: "Tolong Masukkan Email dan password yang benar",
                                                     );
                                                   }
                                                   );
@@ -242,7 +240,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                                   if(user.email=="admin@gmail.com")
                                                   {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>AdminScreen()));
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>PostBookScreen()));
                                                   }
                                                   else{
                                                       Navigator.push(context, MaterialPageRoute(builder: (context) =>MyBook()));
