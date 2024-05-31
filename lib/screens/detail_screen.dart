@@ -1,6 +1,6 @@
 import 'dart:ui';
 
-import 'package:mybook/yourbooks.dart';
+import 'package:mybook/screens/favorite_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +9,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
-class Aboutbook extends StatefulWidget {
+class DetailScreen extends StatefulWidget {
 
   final String author;
   final String link;
@@ -20,7 +20,7 @@ class Aboutbook extends StatefulWidget {
   final String id;
   final List<dynamic> bookmarks;
   
-     Aboutbook({
+     DetailScreen({
       required this.author,
       required this.bookrating,
       required this.link,
@@ -32,10 +32,10 @@ class Aboutbook extends StatefulWidget {
     });
 
   @override
-  State<Aboutbook> createState() => _AboutbookState();
+  State<DetailScreen> createState() => _DetailScreenState();
 }
 
-class _AboutbookState extends State<Aboutbook> {
+class _DetailScreenState extends State<DetailScreen> {
 
 bool? iconbtn1;
 User? user = FirebaseAuth.instance.currentUser;
@@ -43,7 +43,7 @@ final _firestore=FirebaseFirestore.instance;
 
 void addorremovebookmark(bool isadding)
 {
-  String message=isadding?'Bookmark added':'Bookmark Eemove';
+  String message=isadding?'Bookmark Added':'Bookmark Remove';
   Fluttertoast.showToast(
     msg: message,
     toastLength: Toast.LENGTH_SHORT,

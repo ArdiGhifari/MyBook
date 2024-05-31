@@ -112,7 +112,6 @@ class _NewstState extends State<Newst> {
 
 void addorremovebookmark(bool isadding)
 {
-
   String message=isadding?'bookmark added':'Bookmarl remove';
   Fluttertoast.showToast(
     msg: message,

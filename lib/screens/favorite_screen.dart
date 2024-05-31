@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -15,6 +16,7 @@ class FavoriteScreen extends StatefulWidget {
 
 class _FavoriteScreenState extends State<FavoriteScreen> {
   final _firestore=FirebaseFirestore.instance;
+  final user=FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -118,6 +120,7 @@ class Newst extends StatefulWidget {
 
 class _NewstState extends State<Newst> {
   final _firestore=FirebaseFirestore.instance;
+  final user=FirebaseAuth.instance.currentUser;
 
   void addorremovebookmark(bool isadding)
   {

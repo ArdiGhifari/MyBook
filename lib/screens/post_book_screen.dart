@@ -38,7 +38,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   double initialRating=0.0;
 
-  List<String> categories= ['select category','comedy','lifesty','sport','thriller','mystery'];
+  List<String> categories= ['Select Category','Comedy','Lifestyle','Sport','Thriller','Mystery'];
 
   Future<void> checkData()async{
 
@@ -49,7 +49,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
         context: context, 
         builder: (c){
           return ErrorDialog(
-            message: "Please fill the information proparly",
+            message: "Please fill the information properly",
           );
         }
         );
@@ -298,7 +298,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                           ),
                           SizedBox(height: 25,),
                           Text(
-                            'tap to upload image',
+                            'Tap to Upload Image',
                             style: GoogleFonts.inter(
                               fontSize: 19,
                               fontWeight: FontWeight.bold
@@ -315,7 +315,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('popular',
+                  Text('Popular',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
                     fontSize: 21,
