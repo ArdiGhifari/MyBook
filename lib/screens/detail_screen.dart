@@ -15,7 +15,6 @@ class DetailScreen extends StatefulWidget {
   final String link;
   final String booktitle;
   final double bookrating;
-  final String rating;
   final String description;
   final String id;
   final List<dynamic> bookmarks;
@@ -25,7 +24,6 @@ class DetailScreen extends StatefulWidget {
       required this.bookrating,
       required this.link,
       required this.booktitle,
-      required this.rating,
       required this.description,
       required this.id,
       required this.bookmarks
@@ -89,7 +87,7 @@ void Bookmarkadd(iconbtn)async
                 TextButton(
                   onPressed: (){
                     Navigator.pop(context);
-                  }, child: Text('oke'))
+                  }, child: Text('Oke'))
               ],
             )
           ],

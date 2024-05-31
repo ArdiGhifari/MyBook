@@ -88,11 +88,11 @@ class _NewestState extends State<Newest> {
 }
 
 class NewestBooks extends StatefulWidget {
-  
+
   final String author;
   final String link;
   final String booktitle;
-  final String rating;
+  final double rating;
   final String description;
   final String id;
   final List<dynamic> bookmarks;
@@ -166,7 +166,7 @@ void Bookmarkadd(iconbtn)async
                 TextButton(
                   onPressed: (){
                     Navigator.pop(context);
-                  }, child: Text('oke'))
+                  }, child: Text('Oke'))
               ],
             )
           ],
@@ -217,11 +217,10 @@ void Bookmarkadd(iconbtn)async
               author:widget.author,
               link:widget.link,
               booktitle:widget.booktitle,
-              rating:widget.rating,
+              bookrating:widget.rating,
               description:widget.description,
               id:widget.id,
               bookmarks:widget.bookmarks,
-              bookrating: widget.bookrating,
             ),)
             );
           },

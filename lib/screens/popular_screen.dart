@@ -50,16 +50,16 @@ class _PopularBooksState extends State<PopularBooks> {
                     final booktitle=message.data()['title'];
                     final description=message.data()['description'];
                     final rating=message.data()['rating'];
-                    final docid=message.data;
+                    final docid=message.id;
                     final bookmarks=message.data()['Bookmarks'];
 
-                    final messagewidget=PopularBooks(
+                    final messagewidget=PopularBook(
                       author:author,
                       link:link,
                       booktitle:booktitle,
                       rating:rating,
                       description:description,
-                      id:docid,
+                      id: docid,
                       bookmarks : bookmarks,
                     );
                     messagewidgets.add(messagewidget);
@@ -86,7 +86,7 @@ class _PopularBooksState extends State<PopularBooks> {
   }
 }
 
-class PopularBooks extends StatelessWidget{
+class PopularBook extends StatelessWidget{
   final String author;
   final String link;
   final String booktitle;

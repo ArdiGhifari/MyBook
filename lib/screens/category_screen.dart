@@ -14,7 +14,6 @@ class Categories extends StatefulWidget {
 }
 
 
-
 class _CategoriesState extends State<Categories> {
   final _firestore=FirebaseFirestore.instance;
   @override
@@ -67,7 +66,7 @@ class _CategoriesState extends State<Categories> {
                 for(var message in messages!){
                   final Map<String,dynamic>? data=message.data() as Map<String, dynamic>;
 
-                  if(data!['category']==widget.category)
+                  if(data!['categories']==widget.category)
                   {
                     final author=data!['author'];
                     final link=data!['image_url'];
@@ -77,7 +76,7 @@ class _CategoriesState extends State<Categories> {
                     final docid=message.id;
                     final bookmarks= data!['Bookmarks'];
 
-                    final messagewidget= Categories(
+                    final messagewidget= CategoryBooks(
                       author:author,
                       link:link,
                       booktitle:booktitle,
@@ -85,8 +84,8 @@ class _CategoriesState extends State<Categories> {
                       description : description,
                       id: docid,
                       bookmarks: bookmarks,
-                      category: category,
                     );
+
                     messagewidgets.add(messagewidget);
                   }
                 }
@@ -121,18 +120,16 @@ class _CategoriesState extends State<Categories> {
 
 class CategoryBooks extends StatelessWidget{
 
-   CategoryBooks({required this.author,required this.bookrating,required this.link,required this.booktitle,required this.rating,required this.description,required this.id,required this.bookmarks, this.onBookmarkChanged});
+   CategoryBooks({required this.author,required this.link,required this.booktitle,required this.rating,required this.description,required this.id,required this.bookmarks});
 
 
   final String author;
   final String link;
   final String booktitle;
-  final double bookrating;
-  final String rating;
+  final double rating;
   final String description;
   final String id;
   final List<dynamic> bookmarks;
-  final Function(bool)? onBookmarkChanged;
 
 
   @override
@@ -154,10 +151,9 @@ class CategoryBooks extends StatelessWidget{
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
                 author: author, 
-                bookrating: bookrating, 
                 link: link, 
-                booktitle: booktitle, 
-                rating: rating, 
+                booktitle: booktitle,
+                bookrating: rating, 
                 description: description, 
                 id: id, 
                 bookmarks: bookmarks,
