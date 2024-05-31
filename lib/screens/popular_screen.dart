@@ -87,16 +87,25 @@ class _PopularBooksState extends State<PopularBooks> {
 }
 
 class PopularBook extends StatelessWidget{
-  PopularBook({required this.author,required this.link,required this.Booktitle,required this.rating,required this.description,required this.id,required this.bookmarks});
-
-
   final String author;
-   final String link;
-    final String Booktitle;
-     final double rating;
-      final String description;
-       final String id;
-        final List<dynamic> bookmarks;
+  final String link;
+  final String Booktitle;
+  final double rating;
+  final String description;
+  final String id;
+  final List<dynamic> bookmarks;
+  
+  PopularBook({
+    required this.author,
+    required this.link,
+    required this.Booktitle,
+    required this.rating,
+    required this.description,
+    required this.id,
+    required this.bookmarks
+  });
+
+
 @override
 Widget build(BuildContext context){
   return Container(
@@ -107,7 +116,7 @@ Widget build(BuildContext context){
       padding: EdgeInsets.symmetric(horizontal: 10),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Aboutbook(
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author:author,
             link:link,
             booktitle:Booktitle,
