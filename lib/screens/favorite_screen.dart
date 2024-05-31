@@ -2,18 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mybook/detail_screen.dart';
-import 'package:mybook/newst.dart';
+import 'package:mybook/screens/detail_screen.dart';
+import 'package:mybook/screens/newest_screen.dart';
 
 
-class Yourbooks extends StatefulWidget {
-  const Yourbooks({super.key});
+class FavoriteScreen extends StatefulWidget {
+  const FavoriteScreen({super.key});
 
   @override
-  State<Yourbooks> createState() => _YourbooksState();
+  State<FavoriteScreen> createState() => _FavoriteScreenState();
 }
 
-class _YourbooksState extends State<Yourbooks> {
+class _FavoriteScreenState extends State<FavoriteScreen> {
   final _firestore=FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
@@ -182,7 +182,7 @@ class _NewstState extends State<Newst> {
       ),
       child: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context) => Aboutbook(
+          Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author: widget.author, 
             bookrating: widget.bookrating, 
             link: widget.link, 

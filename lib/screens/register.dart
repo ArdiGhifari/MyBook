@@ -4,7 +4,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:mybook/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mybook/dialog/error_dialog.dart';
-
+import 'package:mybook/screens/mybook.dart';
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
@@ -207,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                      context: context,
                                      builder: (c){
                                       return ErrorDialog(
-                                        message: "Tolong tekan emal dan password",
+                                        message: "Tolong Tekan email dan password",
                                       );
                                       
                                      }
