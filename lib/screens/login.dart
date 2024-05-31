@@ -300,7 +300,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             MainAxisAlignment.center,
                                         children: [
                                           Text(
-                                            'No accont',
+                                            'Belum Punya Akun?',
                                             style: GoogleFonts.inter(
                                                 color: Colors.grey.shade600,
                                                 fontWeight: FontWeight.w700,

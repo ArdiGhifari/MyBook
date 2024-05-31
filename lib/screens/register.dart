@@ -207,7 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                      context: context,
                                      builder: (c){
                                       return ErrorDialog(
-                                        message: "Tolong Tekan email dan password",
+                                        message: "Tolong Masukkan email dan password",
                                       );
                                       
                                      }
@@ -228,7 +228,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       context: context, 
                                       builder: (c){
                                         return ErrorDialog(
-                                          message: "siap regis",
+                                          message: "Siap Regist",
                                         );
                                       }
                                       );
@@ -255,7 +255,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 }  
                                 },
                                  child: Text(
-                                  'Creat Accont',
+                                  'Create Account',
                                   style: GoogleFonts.inter(
                                     fontSize: 17,
                                     fontWeight: FontWeight.normal,
@@ -275,7 +275,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text('Sudah Punya AKun',
+                                  Text('Sudah Punya Akun?',
                                   style:GoogleFonts.inter(
                                     color: Colors.grey.shade600,
                                     fontWeight: FontWeight.bold,
