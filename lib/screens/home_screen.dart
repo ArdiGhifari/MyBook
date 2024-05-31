@@ -2,20 +2,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mybook/profile.dart';
+import 'package:mybook/screens/profile_screen.dart';
 import 'package:mybook/constant.dart';
-import 'package:mybook/popular.dart';
-import 'package:mybook/newst.dart';
-import 'package:mybook/Category.dart';
+import 'package:mybook/screens/popular_screen.dart';
+import 'package:mybook/screens/newest_screen.dart';
+import 'package:mybook/screens/category_screen.dart';
 
-class BookStore extends StatefulWidget {
-  const BookStore({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<BookStore> createState() => _BookStoreState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _BookStoreState extends State<BookStore> {
+class _HomeScreenState extends State<HomeScreen> {
   final user=FirebaseAuth.instance.currentUser;
 String? username;
 String? userintial;
@@ -132,7 +132,7 @@ String? userintial;
                       borderRadius: BorderRadius.circular(12.0)
                     ),
                     child: Container(
-                    child: NewstBooks()),
+                    child: Newest()),
                   ),
                   )
                   

@@ -3,7 +3,7 @@ import 'dart:js_interop';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:mybook/aboutbook.dart';
+import 'package:mybook/screens/detail_screen.dart';
 
 class PopularBooks extends StatefulWidget {
   const PopularBooks({super.key});
