@@ -58,10 +58,10 @@ void Bookmarkadd(iconbtn)async
   try{
     if(iconbtn)
     {
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion([user!.email!])});
     }
     else{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
     }
   }
   catch(e){

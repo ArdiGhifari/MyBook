@@ -41,7 +41,8 @@ class _NewestState extends State<Newest> {
               return Text('Error ${snapshot.error}');
             }
             else{
-              if(snapshot.data!=null){
+              if(snapshot.data!=null)
+              {
                 final messages=snapshot.data?.docs.reversed;
                 List<Widget> messagewidgets=[];
 
@@ -137,10 +138,10 @@ void Bookmarkadd(iconbtn)async
   try{
     if(iconbtn)
     {
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
     }
     else{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
   }
   catch(e){

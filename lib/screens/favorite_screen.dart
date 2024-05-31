@@ -139,7 +139,7 @@ class _NewstState extends State<Newst> {
   void Bookmarked() async
   {
     try{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove({user!.email!})});
+      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
     }
     catch(e){
       showDialog(
@@ -190,7 +190,7 @@ class _NewstState extends State<Newst> {
             bookrating: widget.bookrating, 
             link: widget.link, 
             booktitle: widget.booktitle, 
-            rating: widget.rating, 
+            bookrating: widget.rating, 
             description: widget.description, 
             id: widget.id, 
             bookmarks: widget.bookmarks
