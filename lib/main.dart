@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mybook/firebase_options.dart';
+import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
 import 'package:mybook/screens/post_book_screen.dart';
 void main() async {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title:  'Mybook',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: HomeScreen(),
     );
   }
 }

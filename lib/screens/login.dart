@@ -249,7 +249,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   showDialog(
                                                     context: context, builder: (e){
                                                       return ErrorDialog(
-                                                        message: "this email id is not register",
+                                                        message: "Email Ini Tidak Terdaftar!",
                                                       );
                                                     }
                                                     );

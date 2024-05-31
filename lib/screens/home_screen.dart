@@ -176,7 +176,7 @@ class AppDrawer extends StatelessWidget {
               fontSize: 16
             ),),
             onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Comady'),));
+              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Comedy'),));
             },
           ),
           Divider(height: 3.0,color: Colors.black,),
@@ -190,7 +190,7 @@ class AppDrawer extends StatelessWidget {
               fontSize: 16
             ),),
             onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Lifstyle'),));
+              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Lifestyle'),));
             },
           ),
            Divider(height: 3.0,color: Colors.black,),
