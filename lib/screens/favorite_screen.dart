@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mybook/screens/detail_screen.dart';
-import 'package:mybook/screens/newest_screen.dart';
 
 
 class FavoriteScreen extends StatefulWidget {
