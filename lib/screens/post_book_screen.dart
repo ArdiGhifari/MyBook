@@ -6,14 +6,14 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mybook/loadingdialog.dart';
+import 'package:mybook/dialog/loading_dialog.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mybook/errordialog.dart';
-import 'package:mybook/sucessdialog.dart';
+import 'package:mybook/dialog/error_dialog.dart';
+import 'package:mybook/dialog/sucessdialog.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});

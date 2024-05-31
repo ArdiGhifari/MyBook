@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:mybook/aboutbook.dart';
+import 'package:mybook/detail_screen.dart';
 import 'package:mybook/newst.dart';
 
 
