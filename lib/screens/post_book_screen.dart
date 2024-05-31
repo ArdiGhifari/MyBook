@@ -13,7 +13,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybook/dialog/error_dialog.dart';
-import 'package:mybook/dialog/sucessdialog.dart';
+import 'package:mybook/dialog/success_dialog.dart';
 
 class AdminScreen extends StatefulWidget {
   const AdminScreen({super.key});
