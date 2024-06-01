@@ -43,7 +43,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
   Future<void> checkData()async{
 
     CollectionReference users=_firestore.collection("books");
-    if(image==null || title==null || Description==null || Price==null || Author==null || selectedCategory=='select category' || initialRating==0.0)
+    if(image==null || title==null || Description==null || Price==null || Author==null || selectedCategory=='Select Category' || initialRating==0.0)
     {
       showDialog(
         context: context, 
@@ -76,7 +76,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
               'isPopular': light1,
               'categories':selectedCategory,
               'rating':initialRating,
-              'Bookmark':[]
+              'Bookmarks':[]
             }
           ).whenComplete((){
 
@@ -118,7 +118,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
 
       if(imagetemp != null){
         setState(() {
-          textscanner='true';
+          textscanning=true;
           image=imagetemp;
         });
       }
