@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/screens/register.dart';
-import 'package:mybook/screens/mybook.dart';
 import 'package:mybook/screens/post_book_screen.dart';
 import 'package:mybook/screens/home_screen.dart';
 
@@ -221,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 showDialog(
                                                   context: context, 
                                                   builder: (c){
-                                                    return ErrorDialog(
+                                                    return const ErrorDialog(
                                                       message: "Tolong Masukkan Email dan password yang benar",
                                                     );
                                                   }
@@ -247,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 {
                                                   showDialog(
                                                     context: context, builder: (c){
-                                                      return ErrorDialog(
+                                                      return const ErrorDialog(
                                                         message: "Email Ini Tidak Terdaftar!",
                                                       );
                                                     }

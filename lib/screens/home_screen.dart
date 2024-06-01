@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mybook/screens/login.dart';
 import 'package:mybook/screens/profile_screen.dart';
 import 'package:mybook/constant.dart';
 import 'package:mybook/screens/popular_screen.dart';
@@ -256,7 +257,7 @@ class AppDrawer extends StatelessWidget {
             onTap: ()async{
               try{
                 await FirebaseAuth.instance.signOut();
-                Navigator.pop(context);
+                Navigator.push(context,MaterialPageRoute(builder: (context)=>LoginScreen()));
                  print("User Sign out");
               }
               catch(e){
