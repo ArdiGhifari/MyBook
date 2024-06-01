@@ -257,7 +257,6 @@ class AppDrawer extends StatelessWidget {
               try{
                 await FirebaseAuth.instance.signOut();
                 Navigator.pop(context);
-                 Navigator.pop(context);
                  print("User Sign out");
               }
               catch(e){
