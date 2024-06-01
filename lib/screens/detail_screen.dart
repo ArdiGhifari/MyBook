@@ -17,7 +17,6 @@ class DetailScreen extends StatefulWidget {
   final String description;
   final String id;
   final List<dynamic> bookmarks;
-  final Function(bool)? onBookmarkChanged;
   
      DetailScreen({
       required this.author,
@@ -27,7 +26,6 @@ class DetailScreen extends StatefulWidget {
       required this.link,
       required this.id,
       required this.bookmarks,
-      required this.onBookmarkChanged,
     });
 
   @override
@@ -70,7 +68,8 @@ void Bookmarkadd(iconbtn)async
       context: context, 
       builder: (context){
         return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AlertDialog(
               title: Center(
@@ -175,7 +174,7 @@ void Bookmarkadd(iconbtn)async
                     
                   ),
                 ),
-                SizedBox(height: 28,),
+                SizedBox(height: 20,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Text(
@@ -206,14 +205,14 @@ void Bookmarkadd(iconbtn)async
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         RatingBar.builder(
-                           initialRating:widget.bookrating,
-                      minRating: 1,
-                      itemSize: 23,
-                      direction : Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount:5,
-                      itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                      itemBuilder: (context, _) => Icon(
+                        initialRating:widget.bookrating,
+                        minRating: 1,
+                        itemSize: 23,
+                        direction : Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount:5,
+                        itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                        itemBuilder: (context, _) => Icon(
                         Icons.star,
                         color: Colors.yellow,
                       ),
