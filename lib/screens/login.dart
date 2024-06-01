@@ -268,8 +268,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     message: "Gagal Login",
                                                   );
                                                 }
-                                                );
-                                                print(e);
+                                              );
+                                              print(e);
                                             }
                                           },
                                           child: Text(

@@ -147,7 +147,7 @@ class _NewestState extends State<Newest> {
   void Bookmarkadd() async
   {
     try{
-      await _firestore.collection('books').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
     catch(e){
       showDialog(
