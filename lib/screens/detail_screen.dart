@@ -98,6 +98,9 @@ void Bookmarkadd(iconbtn)async
 }
 
   @override
+  void initState(){
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,

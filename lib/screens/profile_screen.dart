@@ -4,7 +4,7 @@ import 'package:mybook/screens/favorite_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({super.key, required void Function() callback});
+  ProfileScreen({this.callback});
 
   VoidCallback? callback;
 
@@ -28,7 +28,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async{
-
         print('Hello');
         widget.callback!();
         return true;
@@ -39,7 +38,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           elevation: 0.0,
           backgroundColor: Colors.indigo,
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFFF5F3F3),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -62,6 +61,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           width: 2.0
                         )
                       ),
+                      
+                      //Foto Profile
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
                         child: Center(
@@ -89,7 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               Align(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.center,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   child: Text(
