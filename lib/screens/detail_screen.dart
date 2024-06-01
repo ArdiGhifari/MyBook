@@ -40,7 +40,7 @@ final _firestore=FirebaseFirestore.instance;
 
 void addorremovebookmark(bool isadding)
 {
-  String message=isadding?'Bookmark Added':'Bookmark Remove';
+  String message=isadding?'Bookmark Added':'Bookmark Removed';
   Fluttertoast.showToast(
     msg: message,
     toastLength: Toast.LENGTH_SHORT,
@@ -118,7 +118,6 @@ void Bookmarkadd(iconbtn)async
         ),
         actions: [
           InkWell(
-
             onTap: (){
               setState(() {
                 iconbtn1=!iconbtn1!;
@@ -148,7 +147,6 @@ void Bookmarkadd(iconbtn)async
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

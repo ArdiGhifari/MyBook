@@ -32,15 +32,14 @@ class _NewestState extends State<Newest> {
               return Center(
                 child: CircularProgressIndicator(
                   backgroundColor: Colors.blueAccent,
-
                 ),
               );
             }
-            else if(snapshot.hasData){
+            else if(snapshot.hasError){
               return Text('Error ${snapshot.error}');
             }
             else{
-              if(snapshot.data!=null)
+              if(snapshot.data !=null)
               {
                 final messages=snapshot.data?.docs.reversed;
                 List<Widget> messagewidgets=[];
@@ -49,8 +48,8 @@ class _NewestState extends State<Newest> {
                   final author = message.data()['author'];
                   final link = message.data()['image_url'];
                   final booktitle = message.data()['title'];
-                  final description = message.data()['description'];
                   final rating = message.data()['rating'];
+                  final description = message.data()['description'];
                   final docid = message.id;
                   final bookmarks = message.data()['Bookmarks'];
 
