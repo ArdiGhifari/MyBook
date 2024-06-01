@@ -219,7 +219,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                                                 showDialog(
                                                   context: context, 
-                                                  builder: (e){
+                                                  builder: (c){
                                                     return ErrorDialog(
                                                       message: "Tolong Masukkan Email dan password yang benar",
                                                     );
@@ -241,18 +241,16 @@ class _LoginScreenState extends State<LoginScreen> {
                                                   else{
                                                       Navigator.push(context, MaterialPageRoute(builder: (context) =>MyBook()));
                                                   }
-
-                                                
                                                 }
                                                 else
                                                 {
                                                   showDialog(
-                                                    context: context, builder: (e){
+                                                    context: context, builder: (c){
                                                       return ErrorDialog(
                                                         message: "Email Ini Tidak Terdaftar!",
                                                       );
                                                     }
-                                                    );
+                                                  );
                                                 }
                                                 setState(() {
                                                   checkSpinner=false;
@@ -267,7 +265,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 context: context, 
                                                 builder: (c){
                                                   return ErrorDialog(
-                                                    message: "invalid credential",
+                                                    message: "Invalid Credential",
                                                   );
                                                 }
                                                 );
@@ -275,7 +273,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                             }
                                           },
                                           child: Text(
-                                            'login',
+                                            'Login',
                                             style: GoogleFonts.inter(
                                                 fontSize: 17,
                                                 fontWeight: FontWeight.w700,

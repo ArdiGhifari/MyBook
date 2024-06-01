@@ -52,7 +52,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
             message: "Please fill the information properly",
           );
         }
-        );
+      );
     }
     else{
       showDialog(
@@ -62,7 +62,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
             message:"Saving Data"
           );
         }
-        );
+      );
         String imageUrl = await uploadImageToFirebaseStorage();
         try{
           users.add(
@@ -170,7 +170,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                 print("User signed out");
               }
               catch(e){
-                print("Error signing out");
+                print("Error signing out $e");
               }
             },
              icon: Icon(
@@ -178,6 +178,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
               size: 30,
               color: Colors.white,
               )),
+
         ],
       ),
       body: SingleChildScrollView(
@@ -197,11 +198,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                 child: TextFormField(
                   controller: title,
                   keyboardType: TextInputType.text,
-                  onChanged: (value){
-                    setState(() {
-                      
-                    });
-                  },
                   decoration: InputDecoration(
                     hintText: 'Book title',
                     hintStyle: GoogleFonts.inter(
@@ -210,6 +206,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                     prefixIcon: Icon(Icons.book_outlined,size: 24,color: Colors.indigo),
+
 
                   ),
                 ),
@@ -223,16 +220,13 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   color: Colors.indigo[50],
                   borderRadius: BorderRadius.circular(5),
                 ),
-                child: TextFormField(controller: Description,
+                child: TextFormField(
+                controller: Description,
                 keyboardType: TextInputType.multiline,
-                maxLength: null,
+                maxLines: null,
                 
                 textInputAction: TextInputAction.newline,
-                onChanged: (value){
-                  setState(() {
-                    
-                  });
-                },
+
                 decoration: InputDecoration(
                   hintText: "Book Description",
                   contentPadding: EdgeInsets.all(10),
@@ -244,8 +238,8 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   ),
                   border: InputBorder.none
                 ),
-                ),
               ),
+            ),
               SizedBox(height: 30,),
               Container(
                 width: double.infinity,
@@ -287,7 +281,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                       color: Colors.indigo[50],
                     ),
 
-                    child: (textscanner==null) ?Center(
+                    child:(textscanning==null) ?Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -306,7 +300,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                           )
                         ],
                       ),
-                    ):(textscanner==false)? Center(child: Text(textscanner,style: TextStyle(color: Colors.black87),),):Image.file(File(image!.path)),
+                    ):(textscanning==false)? Center(child:Text(textscanner,style: TextStyle(color: Colors.black87),),):Image.file(File(image!.path)),
                   ),
                 ),
               ),
@@ -319,14 +313,15 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.bold,
                     fontSize: 21,
-                  ),
+                    ),
+
                   ),
                   SizedBox(width: 20,),
                   Transform.scale(
                     scale: 1.5,
                     child: Switch(
 
-                      thumbIcon: (light1==true)?MaterialStateProperty.resolveWith((state) => Icon(Icons.check,color: Colors.black,)):MaterialStateProperty.resolveWith((states) => Icon(Icons.close,color: Colors.white)),
+                      thumbIcon: (light1==true)?MaterialStateProperty.resolveWith((states) => Icon(Icons.check,color: Colors.black,)):MaterialStateProperty.resolveWith((states) => Icon(Icons.close,color: Colors.white)),
                       value: light1!,
                       activeTrackColor: Colors.green,
                       inactiveThumbColor: Colors.indigo,
@@ -375,7 +370,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                         onChanged: (newvalue){
                           setState(() {
                             selectedCategory = newvalue!;
-                          }
+                           }
                           );
                         },
                       ),

@@ -15,7 +15,7 @@ class RegisterScreen extends StatefulWidget {
 class _RegisterScreenState extends State<RegisterScreen> {
 
   final _auth=FirebaseAuth.instance;
-  bool checkSpinner = true;
+  bool checkSpinner = false;
   String? email;
   String? password;
   bool passwordvisible = false;
