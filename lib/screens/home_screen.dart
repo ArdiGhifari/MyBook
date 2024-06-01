@@ -24,10 +24,20 @@ String? userinitial;
   void openDrawer(){
     _scaffoldkey.currentState?.openDrawer();
   }
+
+  void refreshstream(){
+    Navigator.pop(context);
+    Navigator.pushReplacement(
+      context, 
+      MaterialPageRoute(builder: (context)=> HomeScreen()),
+    );
+  }
+
   @override
   void initState(){
     username=user!.email;
     userinitial=username!.isNotEmpty?username![0]:"Un";
+    super.initState();
   }
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +68,7 @@ String? userinitial;
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileScreen(callback:refreshstream),));
               },
               child: Container(
                 padding: EdgeInsets.all(1.0),

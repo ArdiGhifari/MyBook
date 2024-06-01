@@ -4,14 +4,17 @@ import 'package:mybook/screens/favorite_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+  ProfileScreen({super.key});
+
+  VoidCallback? callback;
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-   final user=FirebaseAuth.instance.currentUser;
+
+  final user=FirebaseAuth.instance.currentUser;
   String? username;
   String? userinitial;
   
@@ -34,7 +37,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         backgroundColor: Colors.yellow,
         body: SingleChildScrollView(
           child: Column(
-
             children: [
               Container(
                 height: 300,
@@ -86,12 +88,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
                   child: Text(
-                    'Your Books',
+                    'Your Favorite Books',
                     style: HeadingTextstyle.copyWith(fontSize: 23),
                   ),
                 ),
               ),
-               FavoriteScreen()
+               const FavoriteScreen()
             ],
           ),
         ),
