@@ -6,6 +6,7 @@ import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/screens/register.dart';
 import 'package:mybook/screens/mybook.dart';
 import 'package:mybook/screens/post_book_screen.dart';
+import 'package:mybook/screens/home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -239,7 +240,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                     Navigator.push(context, MaterialPageRoute(builder: (context) =>PostBookScreen()));
                                                   }
                                                   else{
-                                                      Navigator.push(context, MaterialPageRoute(builder: (context) =>MyBook()));
+                                                      Navigator.push(context, MaterialPageRoute(builder: (context) =>HomeScreen()));
                                                   }
                                                 }
                                                 else

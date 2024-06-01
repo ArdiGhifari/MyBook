@@ -31,10 +31,11 @@ String? userinitial;
   }
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldkey,
       backgroundColor: Color(0xFFF5F5F3),
       appBar: AppBar(
         backgroundColor: Colors.indigo.shade700,
-        title: Text('BookStore App',
+        title: Text('My Book',
         style: GoogleFonts.poppins(
           fontSize: 20,
           fontWeight: FontWeight.w700,
@@ -96,9 +97,8 @@ String? userinitial;
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 13),
               child: Text(
                 'Popular Books',
-                style: HeadingTextstyle.copyWith
-              (
-                decoration: TextDecoration.underline
+                style: HeadingTextstyle.copyWith(
+                   decoration: TextDecoration.underline
               ),
               ),
             ),
@@ -113,17 +113,17 @@ String? userinitial;
                 child: PopularBooks()
               ),
             ),
-              SizedBox(height: 13,),
-              Padding(
+            SizedBox(height: 13,),
+            Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Text("newest",
+                child: Text("Newest",
                 style: HeadingTextstyle.copyWith(
                   decoration: TextDecoration.underline
                 ),
-                ),
-                ),
-                SizedBox(height: 5,),
-                Padding(
+              ),
+            ),
+              SizedBox(height: 5,),
+               Padding(
                   padding: const EdgeInsets.all(7.0),
                   child: Container(
                     decoration: BoxDecoration(
@@ -132,8 +132,8 @@ String? userinitial;
                     ),
                     child: Container(
                     child: Newest()),
-                  ),
-                  )
+                ),
+              )
                   
           ],
         ),
@@ -179,7 +179,7 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           Divider(height: 3.0,color: Colors.black,),
-            ListTile(
+          ListTile(
             leading: Icon(
               Icons.card_giftcard,
             ),
@@ -217,7 +217,7 @@ class AppDrawer extends StatelessWidget {
               fontSize: 16
             ),),
             onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Thariller'),));
+              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Thriller'),));
             },
           ),
            Divider(height: 3.0,color: Colors.black,),
@@ -231,7 +231,7 @@ class AppDrawer extends StatelessWidget {
               fontSize: 16
             ),),
             onTap: (){
-              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Mystary'),));
+              Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Mystery'),));
             },
           ),
           Divider(height: 3.0,color: Colors.black,),

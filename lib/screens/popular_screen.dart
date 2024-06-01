@@ -39,7 +39,7 @@ class _PopularBooksState extends State<PopularBooks> {
                 List<Widget> messagewidgets=[];
 
                 for(var message in messages!){
-                  final bool popular=message.data()['ispopular'];
+                  final bool popular=message.data()['isPopular'];
 
                   if(popular)
                   {

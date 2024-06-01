@@ -1,20 +1,17 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mybook/constant.dart';
 import 'package:mybook/screens/favorite_screen.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({super.key});
-
-  VoidCallback? callback;
+  const ProfileScreen({super.key});
 
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  final user=FirebaseAuth.instance.currentUser;
+   final user=FirebaseAuth.instance.currentUser;
   String? username;
   String? userinitial;
   
@@ -23,6 +20,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     // ignore: deprecated_member_use
     return WillPopScope(
       onWillPop: () async{
+
         print('Hello');
         widget.callback!();
         return true;
