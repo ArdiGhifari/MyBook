@@ -17,15 +17,17 @@ class DetailScreen extends StatefulWidget {
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final Function(bool)? onBookmarkChanged;
   
      DetailScreen({
       required this.author,
-      required this.bookrating,
-      required this.link,
       required this.booktitle,
+      required this.bookrating,
       required this.description,
+      required this.link,
       required this.id,
-      required this.bookmarks
+      required this.bookmarks,
+      required this.onBookmarkChanged,
     });
 
   @override
@@ -57,10 +59,10 @@ void Bookmarkadd(iconbtn)async
   try{
     if(iconbtn)
     {
-      await _firestore.collection('books').doc(widget.id).update({'Bookmark': FieldValue.arrayUnion([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
     }
     else{
-      await _firestore.collection('books').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
   }
   catch(e){
