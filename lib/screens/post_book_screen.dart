@@ -126,7 +126,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
 
     catch(e){
 
-      textscanner='false';
+      textscanning=false;
       image=null;
 
       textscanner="Error Occured, Please try again";

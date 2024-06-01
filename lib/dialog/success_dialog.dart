@@ -59,7 +59,7 @@ class SuccesDialog extends StatelessWidget {
                         Navigator.pop(context);
                       },
                       child: Text(
-                        "Okeyy"
+                        "Oke"
                       ),
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(36)),
