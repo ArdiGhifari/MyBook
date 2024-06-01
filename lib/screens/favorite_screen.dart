@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:mybook/screens/detail_screen.dart';
@@ -22,7 +23,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
         child: StreamBuilder<QuerySnapshot<Object?>>(
-          stream: _firestore.collection('book').snapshots(),
+          stream: _firestore.collection('books').snapshots(),
           builder: (context,snapshot){
             if(!snapshot.hasData){
               return Center(
@@ -50,7 +51,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     final author=data!['author'];
                     final link=data!['image_url'];
                     final booktitle=data!['title'];
-                    final bookrating=data!['bookrating'];
                     final description= data! ['description'];
                     final rating= data!['rating'];
                     final docid=message.id;
@@ -60,7 +60,6 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     {
                       final Widget messagewidget = Newest(
                         author: author, 
-                        bookrating: bookrating, 
                         link: link, 
                         booktitle: booktitle, 
                         rating: rating, 
@@ -87,7 +86,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               {
                 return Container(
                   child: Center(
-                    child: Text("no book to display"),
+                    child: Text("No Book to display"),
                   ),
                 );
               }
@@ -102,7 +101,6 @@ class Newest extends StatefulWidget {
   final String author;
   final String link;
   final String booktitle;
-  final double bookrating;
   final double rating;
   final String description;
   final String id;
@@ -112,7 +110,6 @@ class Newest extends StatefulWidget {
 
   const Newest({
     required this.author,
-    required this.bookrating,
     required this.link,
     required this.booktitle,
     required this.rating,
@@ -125,10 +122,11 @@ class Newest extends StatefulWidget {
   
   
   @override
-  State<Newest> createState() => _NewstState();
+  State<Newest> createState() => _NewestState();
 }
 
-class _NewstState extends State<Newest> {
+class _NewestState extends State<Newest> {
+
   final _firestore=FirebaseFirestore.instance;
   final user=FirebaseAuth.instance.currentUser;
 
@@ -143,13 +141,13 @@ class _NewstState extends State<Newest> {
     backgroundColor: Colors.grey,
     textColor: Colors.white,
     fontSize: 16.0
-  );
-  }
+   );
+ }
 
   void Bookmarkadd() async
   {
     try{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmark': FieldValue.arrayRemove([user!.email!])});
     }
     catch(e){
       showDialog(
@@ -235,7 +233,8 @@ class _NewstState extends State<Newest> {
 
               
             ),
-            SizedBox(width: 170,
+            Container(
+            width: 170,
             height: 200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -19,7 +19,7 @@ class _PopularBooksState extends State<PopularBooks> {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 2),
         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-          stream: _firestore.collection('book').snapshots(),
+          stream: _firestore.collection('books').snapshots(),
           builder: (context, snapshot) {
             if(!snapshot.hasData){
               return Center(

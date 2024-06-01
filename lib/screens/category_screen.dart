@@ -45,7 +45,7 @@ class _CategoriesState extends State<Categories> {
       body: Padding(
         padding: EdgeInsets.all(20.0),
         child: StreamBuilder<QuerySnapshot>(
-          stream: _firestore.collection('book').snapshots(),
+          stream: _firestore.collection('books').snapshots(),
           builder: (context,snapshot){
             if(!snapshot.hasData){
               return Center(

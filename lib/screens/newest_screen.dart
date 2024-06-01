@@ -25,7 +25,7 @@ class _NewestState extends State<Newest> {
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 5),
         child: StreamBuilder(
-          stream: _firestore.collection('book').snapshots(),
+          stream: _firestore.collection('books').snapshots(),
           builder: (context,snapshot){
             if(!snapshot.hasData){
               return Center(
@@ -136,10 +136,10 @@ void Bookmarkadd(iconbtn)async
   try{
     if(iconbtn)
     {
-      await _firestore.collection('book').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
     }
     else{
-      await _firestore.collection('book').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
+      await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
   }
   catch(e){
