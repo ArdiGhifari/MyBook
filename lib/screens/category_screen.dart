@@ -19,7 +19,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Colors.cyan,
       appBar: AppBar(
         backgroundColor: Colors.indigo.shade700,
         title: Text(widget.category,

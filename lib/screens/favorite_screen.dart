@@ -260,7 +260,7 @@ class _NewestState extends State<Newest> {
                 SizedBox(height: 30,),
                 RatingBar.builder(
                    ignoreGestures: true,
-                      initialRating:0.0,
+                      initialRating:widget.rating,
                       minRating: 1,
                       itemSize: 23,
                       direction : Axis.horizontal,

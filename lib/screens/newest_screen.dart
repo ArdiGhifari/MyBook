@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -119,7 +120,7 @@ class _NewestBooksState extends State<NewestBooks> {
 
 void addorremovebookmark(bool isadding)
 {
-  String message=isadding?'bookmark added':'Bookmarl remove';
+  String message=isadding?'Bookmark added':'Bookmark removed';
   Fluttertoast.showToast(
     msg: message,
     toastLength: Toast.LENGTH_SHORT,
@@ -253,7 +254,7 @@ void Bookmarkadd(iconbtn)async
                   )
                 ),
               ),SizedBox(width: 20,),
-              SizedBox(
+              Container(
                 width: 170,
                 height: 200,
                 child: Column(
@@ -281,7 +282,7 @@ void Bookmarkadd(iconbtn)async
                     SizedBox(height: 30,),
                     RatingBar.builder(
                       ignoreGestures: true,
-                      initialRating:0.0,
+                      initialRating:widget.rating,
                       minRating: 1,
                       itemSize: 23,
                       direction : Axis.horizontal,
@@ -309,7 +310,7 @@ void Bookmarkadd(iconbtn)async
                         setState(() {
                           iconbtn=!iconbtn!;
                           addorremovebookmark(iconbtn!);
-                          Bookmarkadd(iconbtn);
+                          Bookmarkadd(iconbtn!);
                         });
                       },
                       child: iconbtn!? Icon(
