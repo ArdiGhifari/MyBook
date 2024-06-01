@@ -235,7 +235,7 @@ class _NewstState extends State<Newest> {
 
               
             ),
-            Container(width: 170,
+            SizedBox(width: 170,
             height: 200,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

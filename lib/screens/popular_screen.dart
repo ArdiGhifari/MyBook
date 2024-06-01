@@ -14,7 +14,7 @@ class _PopularBooksState extends State<PopularBooks> {
   final _firestore=FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 2),

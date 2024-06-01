@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: ModalProgressHUD(
           inAsyncCall: checkSpinner,
           child: Center(
-            child: Container(
+            child: SizedBox(
               height: MediaQuery.of(context).size.height,
               width: double.maxFinite,
               child: Stack(

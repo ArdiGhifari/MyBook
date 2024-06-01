@@ -253,7 +253,7 @@ void Bookmarkadd(iconbtn)async
                   )
                 ),
               ),SizedBox(width: 20,),
-              Container(
+              SizedBox(
                 width: 170,
                 height: 200,
                 child: Column(

@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: ModalProgressHUD(
           inAsyncCall: checkSpinner,
           child: Center(
-            child: Container(
+            child: SizedBox(
 
               height: MediaQuery.of(context).size.height,
               width: double.maxFinite,
@@ -44,7 +44,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 children: [
                   Image.asset(
-                    'assets/image/buku.jpg',
+                    'images/banner-jurusan.jpg',
                     fit: BoxFit.cover,
                     height: 287,
                     width: double.infinity,
