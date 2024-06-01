@@ -130,9 +130,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
       image=null;
 
       textscanner="Error Occured, Please try again";
-      setState(() {
-        
-      });
     }
   }
 
