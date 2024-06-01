@@ -39,7 +39,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           elevation: 0.0,
           backgroundColor: Colors.indigo,
         ),
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: Column(
             children: [
