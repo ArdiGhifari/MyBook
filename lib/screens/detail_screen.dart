@@ -61,6 +61,7 @@ void Bookmarkadd(iconbtn)async
     {
       await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
     }
+
     else{
       await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
@@ -100,9 +101,6 @@ void Bookmarkadd(iconbtn)async
 }
 
   @override
-  void initState(){
-    super.initState();
-  }
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
@@ -190,7 +188,7 @@ void Bookmarkadd(iconbtn)async
                       fontSize: 30,
                     ),
                   ),
-                  ),
+                ),
                   SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -198,7 +196,7 @@ void Bookmarkadd(iconbtn)async
                       widget.author,
                       textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w500,
                         color: Colors.black.withOpacity(0.5),
                         fontSize: 17
                       ),
