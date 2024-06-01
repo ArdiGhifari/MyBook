@@ -120,9 +120,6 @@ class _CategoriesState extends State<Categories> {
 
 class CategoryBooks extends StatelessWidget{
 
-   CategoryBooks({required this.author,required this.link,required this.booktitle,required this.rating,required this.description,required this.id,required this.bookmarks});
-
-
   final String author;
   final String link;
   final String booktitle;
@@ -130,7 +127,18 @@ class CategoryBooks extends StatelessWidget{
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final Function(bool)? onBookmarkChanged;
 
+   CategoryBooks({
+   required this.author,
+   required this.link,
+   required this.booktitle,
+   required this.rating,
+   required this.description,
+   required this.id,
+   required this.bookmarks,
+   this.onBookmarkChanged
+   });
 
   @override
 
@@ -159,6 +167,7 @@ class CategoryBooks extends StatelessWidget{
                 bookmarks: bookmarks,
                 ),)
                 );
+
             },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,

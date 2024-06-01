@@ -17,6 +17,7 @@ class DetailScreen extends StatefulWidget {
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final Function(bool)? onBookmarkChanged;
   
      DetailScreen({
       required this.author,
@@ -26,6 +27,7 @@ class DetailScreen extends StatefulWidget {
       required this.link,
       required this.id,
       required this.bookmarks,
+      this.onBookmarkChanged
     });
 
   @override
@@ -159,9 +161,8 @@ void Bookmarkadd(iconbtn)async
                   child: Container(
                     padding: EdgeInsets.all(30),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(12),
                       color: Colors.indigo[50],
-                     
                     ),
                     width: double.infinity,
                     child:ClipRRect(
@@ -197,12 +198,12 @@ void Bookmarkadd(iconbtn)async
                       widget.author,
                       textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w700,
                         color: Colors.black.withOpacity(0.5),
                         fontSize: 17
                       ),
                     ),
-                    ),
+                  ),
                     SizedBox(height: 30,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -255,11 +256,11 @@ void Bookmarkadd(iconbtn)async
                         fontWeight: FontWeight.w600,
                         color: Colors.black.withOpacity(0.5),
                         fontSize: 15,
-                      ),
-                      ),
-                      ),
+                     ),
+                    ),
+                  ),
 
-                      SizedBox(height: 15,),
+                 SizedBox(height: 15,),
               ],
             ),
           ),

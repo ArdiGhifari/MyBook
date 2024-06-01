@@ -95,6 +95,7 @@ class NewestBooks extends StatefulWidget {
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final Function(bool)? onBookmarkChanged;
 
 
    const NewestBooks({
@@ -104,7 +105,8 @@ class NewestBooks extends StatefulWidget {
     required this.rating,
     required this.description,
     required this.id,
-    required this.bookmarks
+    required this.bookmarks,
+    this.onBookmarkChanged
     });
 
   

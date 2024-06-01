@@ -42,7 +42,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
 
   Future<void> checkData()async{
 
-    CollectionReference users=_firestore.collection("books");
+    CollectionReference users=_firestore.collection('books');
     if(image==null || title==null || Description==null || Price==null || Author==null || selectedCategory=='Select Category' || initialRating==0.0)
     {
       showDialog(

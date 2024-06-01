@@ -220,7 +220,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 showDialog(
                                                   context: context, 
                                                   builder: (c){
-                                                    return const ErrorDialog(
+                                                    return ErrorDialog(
                                                       message: "Tolong Masukkan Email dan password yang benar",
                                                     );
                                                   }
@@ -246,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 {
                                                   showDialog(
                                                     context: context, builder: (c){
-                                                      return const ErrorDialog(
+                                                      return ErrorDialog(
                                                         message: "Email Ini Tidak Terdaftar!",
                                                       );
                                                     }
@@ -265,7 +265,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                                 context: context, 
                                                 builder: (c){
                                                   return ErrorDialog(
-                                                    message: "Invalid Credential",
+                                                    message: "Gagal Login",
                                                   );
                                                 }
                                                 );
