@@ -4,6 +4,8 @@ import 'package:mybook/firebase_options.dart';
 import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
 import 'package:mybook/screens/post_book_screen.dart';
+import 'package:mybook/screens/profile_screen.dart';
+import 'package:mybook/screens/register.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title:  'Mybook',
+      title:  'MyBook',
       debugShowCheckedModeBanner: false,
       home: LoginScreen(),
     );

@@ -38,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
               child: Stack(
                 children: [
                   Image.asset(
-                    'assets/image/banner-jurusan.jpg',
+                    'images/banner-jurusan.jpg',
                     fit: BoxFit.cover,
                     height: 287,
                     width: double.infinity,

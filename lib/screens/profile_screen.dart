@@ -17,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final user=FirebaseAuth.instance.currentUser;
   String? username;
   String? userinitial;
+  
   @override
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
@@ -92,7 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              const FavoriteScreen()
+               FavoriteScreen()
             ],
           ),
         ),
