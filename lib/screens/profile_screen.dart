@@ -4,7 +4,7 @@ import 'package:mybook/screens/favorite_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileScreen extends StatefulWidget {
-  ProfileScreen({super.key});
+  ProfileScreen({super.key, required void Function() callback});
 
   VoidCallback? callback;
 
@@ -19,6 +19,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
   String? userinitial;
   
   @override
+  void initState(){
+    username=user!.email;
+    userinitial=username!.isNotEmpty?username![0]:"Un";
+    super.initState();
+  }
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
     return WillPopScope(
