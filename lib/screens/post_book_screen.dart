@@ -101,8 +101,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   message: "Data Update Succesfully",
                 );
               }
-              );
-
+            );
           });
         }
         catch(e){
@@ -125,10 +124,8 @@ class _PostBookScreenState extends State<PostBookScreen> {
     }
 
     catch(e){
-
       textscanning=false;
       image=null;
-
       textscanner="Error Occured, Please try again";
     }
   }

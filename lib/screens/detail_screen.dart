@@ -17,6 +17,8 @@ class DetailScreen extends StatefulWidget {
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final String price;
+  final String pages;
   final Function(bool)? onBookmarkChanged;
   
      DetailScreen({
@@ -27,6 +29,8 @@ class DetailScreen extends StatefulWidget {
       required this.link,
       required this.id,
       required this.bookmarks,
+      required this.price,
+      required this.pages,
       this.onBookmarkChanged
     });
 
@@ -241,7 +245,33 @@ void Bookmarkadd(iconbtn)async
                               ),
                             ),
                           ],
-                        )
+                        ),
+                              SizedBox(height: 20,),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              child: Text(
+                              widget.price,
+                              textAlign: TextAlign.left,
+                              style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: 17
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20,),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          child: Text(
+                            widget.pages,
+                            textAlign: TextAlign.left,
+                            style: GoogleFonts.poppins(
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black.withOpacity(0.5),
+                              fontSize: 17
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                     SizedBox(height: 30,),
@@ -249,7 +279,6 @@ void Bookmarkadd(iconbtn)async
                       padding: const EdgeInsets.symmetric(horizontal: 12),
                       child: Text(widget.description,
                       textAlign: TextAlign.left,
-                      
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         color: Colors.black.withOpacity(0.5),

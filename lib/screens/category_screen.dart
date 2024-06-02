@@ -75,6 +75,8 @@ class _CategoriesState extends State<Categories> {
                     final rating= data!['rating'];
                     final docid=message.id;
                     final bookmarks= data!['Bookmarks'];
+                    final price = data!['price'];
+                    final pages = data!['pages'];
 
                     final messagewidget= CategoryBooks(
                       author:author,
@@ -84,6 +86,8 @@ class _CategoriesState extends State<Categories> {
                       description : description,
                       id: docid,
                       bookmarks: bookmarks,
+                      price: price,
+                      pages: pages
                     );
 
                     messagewidgets.add(messagewidget);
@@ -128,6 +132,8 @@ class CategoryBooks extends StatelessWidget{
   final String id;
   final List<dynamic> bookmarks;
   final Function(bool)? onBookmarkChanged;
+  final String price;
+  final String pages;
 
    CategoryBooks({
    required this.author,
@@ -138,6 +144,9 @@ class CategoryBooks extends StatelessWidget{
    required this.id,
    required this.bookmarks,
    this.onBookmarkChanged
+   this.onBookmarkChanged,
+   required this.price,
+   required this.pages
    });
 
   @override
@@ -165,6 +174,8 @@ class CategoryBooks extends StatelessWidget{
                 description: description, 
                 id: id, 
                 bookmarks: bookmarks,
+                price : price,
+                pages : pages
                 ),)
                 );
 
