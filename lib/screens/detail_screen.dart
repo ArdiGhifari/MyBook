@@ -105,12 +105,19 @@ void Bookmarkadd(iconbtn)async
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
+      backgroundColor: Color.fromARGB(255,14, 135, 141),
 
       appBar: AppBar(
-        backgroundColor: Colors.indigo.shade700,
+        backgroundColor: Color.fromARGB(200,8,51,161),
         centerTitle: true,
         automaticallyImplyLeading: false,
+         title: Text('Detail Book',
+        style: GoogleFonts.poppins(
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+          color: Colors.white
+          ),
+        ),
         leading: IconButton(
           icon: Icon(
             Icons.arrow_back,
@@ -159,7 +166,7 @@ void Bookmarkadd(iconbtn)async
                     padding: EdgeInsets.all(30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(12),
-                      color: Colors.indigo[50],
+                      color: Color.fromARGB(01,36,197,124),
                     ),
                     width: double.infinity,
                     child:ClipRRect(
@@ -184,7 +191,7 @@ void Bookmarkadd(iconbtn)async
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w700,
 
-                      fontSize: 30,
+                      fontSize: 40,
                     ),
                   ),
                 ),
@@ -197,7 +204,7 @@ void Bookmarkadd(iconbtn)async
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
                         color: Colors.black.withOpacity(0.5),
-                        fontSize: 17
+                        fontSize: 20
                       ),
                     ),
                   ),
@@ -252,7 +259,7 @@ void Bookmarkadd(iconbtn)async
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
-                              color: Colors.black.withOpacity(0.5),
+                              color: Colors.black.withOpacity(1),
                               fontSize: 17
                             ),
                           ),
@@ -265,7 +272,7 @@ void Bookmarkadd(iconbtn)async
                             textAlign: TextAlign.left,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
-                              color: Colors.black.withOpacity(0.5),
+                              color: Colors.black.withOpacity(1),
                               fontSize: 17
                             ),
                           ),
@@ -277,7 +284,7 @@ void Bookmarkadd(iconbtn)async
                       textAlign: TextAlign.left,
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
-                        color: Colors.black.withOpacity(0.5),
+                        color: Colors.white.withOpacity(1),
                         fontSize: 15,
                      ),
                     ),

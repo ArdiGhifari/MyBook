@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybook/screens/login.dart';
+import 'package:mybook/screens/post_book_screen.dart';
 import 'package:mybook/screens/profile_screen.dart';
 import 'package:mybook/constant.dart';
 import 'package:mybook/screens/popular_screen.dart';
@@ -43,9 +44,9 @@ String? userinitial;
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldkey,
-      backgroundColor: Color(0xFFF5F5F3),
+      backgroundColor: Color.fromARGB(200,25,151,223),
       appBar: AppBar(
-        backgroundColor: Colors.indigo.shade700,
+        backgroundColor: Color.fromARGB(200,8,51,161),
         title: Text('My Book',
         style: GoogleFonts.poppins(
           fontSize: 20,
@@ -242,6 +243,20 @@ class AppDrawer extends StatelessWidget {
             ),),
             onTap: (){
               Navigator.push(context,MaterialPageRoute(builder: (context) => Categories(category: 'Mystery'),));
+            },
+          ),
+          Divider(height: 3.0,color: Colors.black,),
+           ListTile(
+            leading: Icon(
+              Icons.menu_book_outlined,
+            ),
+            title: Text('Post Book',style: GoogleFonts.poppins(
+              fontWeight: FontWeight.w600,
+              color: Colors.grey.shade800,
+              fontSize: 16
+            ),),
+            onTap: (){
+              Navigator.push(context,MaterialPageRoute(builder: (context) => PostBookScreen()));
             },
           ),
           Divider(height: 3.0,color: Colors.black,),
