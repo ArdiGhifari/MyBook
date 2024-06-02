@@ -52,6 +52,8 @@ class _NewestState extends State<Newest> {
                   final description = message.data()['description'];
                   final docid = message.id;
                   final bookmarks = message.data()['Bookmarks'];
+                  final price = message.data()['price'];
+                  final pages = message.data()['pages'];
 
                   final Widget messagewidget = NewestBooks(
                     author: author,
@@ -61,7 +63,8 @@ class _NewestState extends State<Newest> {
                     description: description,
                     id: docid,
                     bookmarks: bookmarks,
-
+                    price: price,
+                    pages:pages
                   );
                 messagewidgets.add(messagewidget);
                 }
@@ -96,6 +99,8 @@ class NewestBooks extends StatefulWidget {
   final String id;
   final List<dynamic> bookmarks;
   final Function(bool)? onBookmarkChanged;
+  final String price;
+  final String pages;
 
 
    const NewestBooks({
@@ -106,7 +111,9 @@ class NewestBooks extends StatefulWidget {
     required this.description,
     required this.id,
     required this.bookmarks,
-    this.onBookmarkChanged
+    this.onBookmarkChanged,
+    required this.price,
+    required this.pages,
     });
 
   
@@ -222,6 +229,8 @@ void Bookmarkadd(iconbtn)async
               description:widget.description,
               id:widget.id,
               bookmarks:widget.bookmarks,
+              price: widget.price,
+              pages: widget.pages
             ),)
             );
           },

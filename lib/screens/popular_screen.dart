@@ -50,6 +50,8 @@ class _PopularBooksState extends State<PopularBooks> {
                     final rating=message.data()['rating'];
                     final docid=message.id;
                     final bookmarks=message.data()['Bookmarks'];
+                    final price=message.data()['price'];
+                    final pages=message.data()['pages'];
 
                     final messagewidget=PopularBook(
                       author:author,
@@ -59,6 +61,8 @@ class _PopularBooksState extends State<PopularBooks> {
                       description:description,
                       id: docid,
                       bookmarks : bookmarks,
+                      price: price,
+                      pages: pages
                     );
                     messagewidgets.add(messagewidget);
                   }
@@ -92,6 +96,8 @@ class PopularBook extends StatelessWidget{
   final String description;
   final String id;
   final List<dynamic> bookmarks;
+  final String price;
+  final String pages;
   
   PopularBook({
     required this.author,
@@ -100,7 +106,9 @@ class PopularBook extends StatelessWidget{
     required this.rating,
     required this.description,
     required this.id,
-    required this.bookmarks
+    required this.bookmarks,
+    required this.price,
+    required this.pages
   });
 
 
@@ -121,7 +129,9 @@ Widget build(BuildContext context){
             bookrating:rating,
             description:description,
             id:id,
-            bookmarks:bookmarks
+            bookmarks:bookmarks,
+            price:price,
+            pages:pages,
           ),)
           );
         },

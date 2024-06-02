@@ -55,6 +55,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     final rating= data!['rating'];
                     final docid=message.id;
                     final bookmarks= data!['Bookmarks'];
+                    final price = data!['price'];
+                    final pages = data!['pages'];
 
                     if (bookmarks.contains(user!.email!))
                     {
@@ -67,7 +69,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         id: docid, 
                         bookmarks: bookmarks,
                         checkbookmarks: checkbookmark,
-                        index:i
+                        index:i,
+                        price: price,
+                        pages: pages,
                     );
 
                         messagewidgets.add(messagewidget);
@@ -107,6 +111,8 @@ class Newest extends StatefulWidget {
   final List<dynamic> bookmarks;
   final List<bool> checkbookmarks;
   final int index;
+  final String price;
+  final String pages;
 
   const Newest({
     required this.author,
@@ -117,7 +123,9 @@ class Newest extends StatefulWidget {
     required this.id,
     required this.bookmarks, 
     required this.checkbookmarks, 
-    required this.index
+    required this.index,
+    required this.price,
+    required this.pages
   });
   
   
@@ -200,7 +208,9 @@ class _NewestState extends State<Newest> {
             bookrating: widget.rating, 
             description: widget.description, 
             id: widget.id, 
-            bookmarks: widget.bookmarks
+            bookmarks: widget.bookmarks,
+            price: widget.price,
+            pages: widget.pages,
             )),
           );
         },

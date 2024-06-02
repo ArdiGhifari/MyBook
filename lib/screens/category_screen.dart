@@ -143,7 +143,6 @@ class CategoryBooks extends StatelessWidget{
    required this.description,
    required this.id,
    required this.bookmarks,
-   this.onBookmarkChanged
    this.onBookmarkChanged,
    required this.price,
    required this.pages
