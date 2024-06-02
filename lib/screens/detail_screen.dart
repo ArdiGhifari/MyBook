@@ -12,7 +12,7 @@ class DetailScreen extends StatefulWidget {
 
   final String author;
   final String link;
-  final String booktitle;
+  final String title;
   final double bookrating;
   final String description;
   final String id;
@@ -23,7 +23,7 @@ class DetailScreen extends StatefulWidget {
   
      DetailScreen({
       required this.author,
-      required this.booktitle,
+      required this.title,
       required this.bookrating,
       required this.description,
       required this.link,
@@ -65,7 +65,6 @@ void Bookmarkadd(iconbtn)async
     {
       await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayUnion([user!.email!])});
     }
-
     else{
       await _firestore.collection('books').doc(widget.id).update({'Bookmarks': FieldValue.arrayRemove([user!.email!])});
     }
@@ -111,7 +110,6 @@ void Bookmarkadd(iconbtn)async
 
       appBar: AppBar(
         backgroundColor: Colors.indigo.shade700,
-
         centerTitle: true,
         automaticallyImplyLeading: false,
         leading: IconButton(
@@ -122,7 +120,6 @@ void Bookmarkadd(iconbtn)async
           onPressed: (){
             Navigator.pop(context);
           },
-
         ),
         actions: [
           InkWell(
@@ -151,7 +148,6 @@ void Bookmarkadd(iconbtn)async
         ],
       ),
       body: SingleChildScrollView(
-
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
@@ -184,7 +180,7 @@ void Bookmarkadd(iconbtn)async
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
                   child: Text(
-                    widget.booktitle,
+                    widget.title,
                     textAlign: TextAlign.left,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w700,
@@ -222,8 +218,8 @@ void Bookmarkadd(iconbtn)async
                         Icons.star,
                         color: Colors.yellow,
                       ),
-                      onRatingUpdate: (rating){
-                        print(rating);
+                      onRatingUpdate: (bookrating){
+                        print(bookrating);
                       }
                         ),
                         SizedBox(width: 10,),
@@ -286,7 +282,6 @@ void Bookmarkadd(iconbtn)async
                      ),
                     ),
                   ),
-
                  SizedBox(height: 15,),
               ],
             ),

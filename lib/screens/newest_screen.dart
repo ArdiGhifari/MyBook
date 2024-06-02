@@ -47,7 +47,7 @@ class _NewestState extends State<Newest> {
                 for(var message in messages!){
                   final author = message.data()['author'];
                   final link = message.data()['image_url'];
-                  final booktitle = message.data()['title'];
+                  final title = message.data()['title'];
                   final rating = message.data()['rating'];
                   final description = message.data()['description'];
                   final docid = message.id;
@@ -58,7 +58,7 @@ class _NewestState extends State<Newest> {
                   final Widget messagewidget = NewestBooks(
                     author: author,
                     link: link,
-                    booktitle: booktitle,
+                    title: title,
                     rating: rating,
                     description: description,
                     id: docid,
@@ -93,7 +93,7 @@ class NewestBooks extends StatefulWidget {
 
   final String author;
   final String link;
-  final String booktitle;
+  final String title;
   final double rating;
   final String description;
   final String id;
@@ -106,7 +106,7 @@ class NewestBooks extends StatefulWidget {
    const NewestBooks({
     required this.author,
     required this.link,
-    required this.booktitle,
+    required this.title,
     required this.rating,
     required this.description,
     required this.id,
@@ -224,7 +224,7 @@ void Bookmarkadd(iconbtn)async
             Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
               author:widget.author,
               link:widget.link,
-              booktitle:widget.booktitle,
+              title:widget.title,
               bookrating:widget.rating,
               description:widget.description,
               id:widget.id,
@@ -273,7 +273,7 @@ void Bookmarkadd(iconbtn)async
 
                   children: [
                     Text(
-                      widget.booktitle,
+                      widget.title,
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w700,
 

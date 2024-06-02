@@ -45,7 +45,7 @@ class _PopularBooksState extends State<PopularBooks> {
                   {
                     final author=message.data()['author'];
                     final link=message.data()['image_url'];
-                    final booktitle=message.data()['title'];
+                    final title=message.data()['title'];
                     final description=message.data()['description'];
                     final rating=message.data()['rating'];
                     final docid=message.id;
@@ -56,7 +56,7 @@ class _PopularBooksState extends State<PopularBooks> {
                     final messagewidget=PopularBook(
                       author:author,
                       link:link,
-                      booktitle:booktitle,
+                      title:title,
                       rating:rating,
                       description:description,
                       id: docid,
@@ -91,7 +91,7 @@ class _PopularBooksState extends State<PopularBooks> {
 class PopularBook extends StatelessWidget{
   final String author;
   final String link;
-  final String booktitle;
+  final String title;
   final double rating;
   final String description;
   final String id;
@@ -102,7 +102,7 @@ class PopularBook extends StatelessWidget{
   PopularBook({
     required this.author,
     required this.link,
-    required this.booktitle,
+    required this.title,
     required this.rating,
     required this.description,
     required this.id,
@@ -125,7 +125,7 @@ Widget build(BuildContext context){
           Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author:author,
             link:link,
-            booktitle:booktitle,
+            title:title,
             bookrating:rating,
             description:description,
             id:id,
@@ -168,7 +168,7 @@ Widget build(BuildContext context){
             ),
             SizedBox(height: 12,),
             Text(
-              booktitle,
+              title,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: GoogleFonts.poppins(

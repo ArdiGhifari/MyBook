@@ -70,7 +70,7 @@ class _CategoriesState extends State<Categories> {
                   {
                     final author=data!['author'];
                     final link=data!['image_url'];
-                    final booktitle=data!['title'];
+                    final title=data!['title'];
                     final description= data! ['description'];
                     final rating= data!['rating'];
                     final docid=message.id;
@@ -81,7 +81,7 @@ class _CategoriesState extends State<Categories> {
                     final messagewidget= CategoryBooks(
                       author:author,
                       link:link,
-                      booktitle:booktitle,
+                      title:title,
                       rating : rating,
                       description : description,
                       id: docid,
@@ -126,7 +126,7 @@ class CategoryBooks extends StatelessWidget{
 
   final String author;
   final String link;
-  final String booktitle;
+  final String title;
   final double rating;
   final String description;
   final String id;
@@ -138,7 +138,7 @@ class CategoryBooks extends StatelessWidget{
    CategoryBooks({
    required this.author,
    required this.link,
-   required this.booktitle,
+   required this.title,
    required this.rating,
    required this.description,
    required this.id,
@@ -168,7 +168,7 @@ class CategoryBooks extends StatelessWidget{
               Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
                 author: author, 
                 link: link, 
-                booktitle: booktitle,
+                title:title,
                 bookrating: rating, 
                 description: description, 
                 id: id, 
@@ -207,7 +207,7 @@ class CategoryBooks extends StatelessWidget{
                 ),
                 SizedBox(height: 12,),
                 Text(
-                  booktitle,
+                  title,
 
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,

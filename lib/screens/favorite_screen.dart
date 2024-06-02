@@ -50,7 +50,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 
                     final author=data!['author'];
                     final link=data!['image_url'];
-                    final booktitle=data!['title'];
+                    final title=data!['title'];
                     final description= data! ['description'];
                     final rating= data!['rating'];
                     final docid=message.id;
@@ -63,7 +63,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       final Widget messagewidget = Newest(
                         author: author, 
                         link: link, 
-                        booktitle: booktitle, 
+                        title: title, 
                         rating: rating, 
                         description: description, 
                         id: docid, 
@@ -104,7 +104,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
 class Newest extends StatefulWidget {
   final String author;
   final String link;
-  final String booktitle;
+  final String title;
   final double rating;
   final String description;
   final String id;
@@ -117,7 +117,7 @@ class Newest extends StatefulWidget {
   const Newest({
     required this.author,
     required this.link,
-    required this.booktitle,
+    required this.title,
     required this.rating,
     required this.description,
     required this.id,
@@ -204,7 +204,7 @@ class _NewestState extends State<Newest> {
           Navigator.push(context, MaterialPageRoute(builder: (context) => DetailScreen(
             author: widget.author, 
             link: widget.link, 
-            booktitle: widget.booktitle, 
+            title: widget.title, 
             bookrating: widget.rating, 
             description: widget.description, 
             id: widget.id, 
@@ -251,7 +251,7 @@ class _NewestState extends State<Newest> {
               
               children: [
                 Text(
-                  widget.booktitle,
+                  widget.title,
                   style: TextStyle(
                     fontWeight: FontWeight.w900,
 
