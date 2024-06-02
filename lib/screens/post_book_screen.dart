@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/dialog/success_dialog.dart';
+import 'package:mybook/screens/home_screen.dart';
 
 class PostBookScreen extends StatefulWidget {
   const PostBookScreen({super.key});
@@ -43,7 +44,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
   Future<void> checkData()async{
 
     CollectionReference users=_firestore.collection('books');
-    if(image==null || title==null || Description==null || Price==null || Author==null || selectedCategory=='Select Category' || initialRating==0.0)
+    if(image==null || title.text.isEmpty || Description.text.isEmpty || Price.text.isEmpty || Author.text.isEmpty || selectedCategory=='Select Category' || initialRating==0.0)
     {
       showDialog(
         context: context, 
@@ -90,7 +91,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
               Pages.text="";
               light1 = false;
               Author.text = "";
-              selectedCategory = "select Category";
+              selectedCategory = "Select Category";
               initialRating = 0.0;
             });
             Navigator.pop(context);
@@ -193,7 +194,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   controller: title,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration(
-                    hintText: 'Book title',
+                    hintText: 'Book Title',
                     hintStyle: GoogleFonts.inter(
                       fontSize: 18,
                       color: Colors.grey.shade700,
@@ -362,6 +363,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                     scale: 1.5,
                     child: Switch(
 
+                      // ignore: deprecated_member_use
                       thumbIcon: (light1==true)?MaterialStateProperty.resolveWith((states) => Icon(Icons.check,color: Colors.black,)):MaterialStateProperty.resolveWith((states) => Icon(Icons.close,color: Colors.white)),
                       value: light1!,
                       activeTrackColor: Colors.green,
@@ -464,6 +466,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
                 child: ElevatedButton(
                   onPressed: (){
                     checkData();
+                    
                   },
                   child: Text(
                     'Upload Book',
