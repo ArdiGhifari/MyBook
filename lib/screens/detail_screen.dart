@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {
 
@@ -289,6 +290,14 @@ void Bookmarkadd(iconbtn)async
                      ),
                     ),
                   ),
+                  SizedBox(height: 20,),
+                        ElevatedButton(
+                          onPressed:(){
+                            final Uri whatsapp = Uri.parse('https://wa.me/${6289629018837}');
+                            launchUrl(whatsapp);
+                          },
+                          child: Text('Chat Seller'),
+                        ),
                  SizedBox(height: 15,),
               ],
             ),
