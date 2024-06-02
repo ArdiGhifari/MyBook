@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mybook/firebase_options.dart';
 import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
+import 'package:mybook/screens/post_book_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title:'MyBook',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: PostBookScreen(),
     );
   }
 }

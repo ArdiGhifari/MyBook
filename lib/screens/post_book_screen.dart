@@ -261,6 +261,53 @@ class _PostBookScreenState extends State<PostBookScreen> {
                 ),
               ),
               SizedBox(height: 30,),
+              Container(
+                width: double.infinity,
+
+                decoration: BoxDecoration(
+                  color: Colors.indigo[50],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: TextFormField(
+                  controller: Price,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: 'Harga',
+                    hintStyle: GoogleFonts.inter(
+                      fontSize: 18,
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    prefixIcon: Icon(Icons.money,size: 24,color: Colors.indigo,),
+
+                  ),
+                ),
+              ),
+              SizedBox(height: 30,),
+              Container(
+                width: double.infinity,
+
+                decoration: BoxDecoration(
+                  color: Colors.indigo[50],
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: TextFormField(
+                  controller: Pages,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: 'Halaman Buku',
+                    hintStyle: GoogleFonts.inter(
+                      fontSize: 18,
+                      color: Colors.grey.shade700,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    prefixIcon: Icon(Icons.book,size: 24,color: Colors.indigo,),
+
+                  ),
+                ),
+              ),
+              
+              SizedBox(height: 30,),
               DottedBorder(
 
                 borderType: BorderType.RRect,
