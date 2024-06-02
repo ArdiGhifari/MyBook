@@ -40,7 +40,7 @@ class DetailScreen extends StatefulWidget {
 
 class _DetailScreenState extends State<DetailScreen> {
 
-bool? iconbtn1;
+bool? iconbtn1 = false;
 User? user = FirebaseAuth.instance.currentUser;
 final _firestore=FirebaseFirestore.instance;
 
@@ -102,7 +102,6 @@ void Bookmarkadd(iconbtn)async
       );
   }
 }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
