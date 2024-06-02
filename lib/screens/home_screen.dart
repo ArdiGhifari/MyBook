@@ -37,7 +37,7 @@ String? userinitial;
   @override
   void initState(){
     username=user!.email;
-    userinitial=username!.isNotEmpty?username![0]:"Un";
+    userinitial=username!.isNotEmpty?username![0].toUpperCase():"Un";
     super.initState();
   }
   Widget build(BuildContext context) {

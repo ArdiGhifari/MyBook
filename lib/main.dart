@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title:'MyBook',
       debugShowCheckedModeBanner: false,
-      home: PostBookScreen(),
+      home: HomeScreen(),
     );
   }
 }
