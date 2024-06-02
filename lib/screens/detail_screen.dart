@@ -241,11 +241,14 @@ void Bookmarkadd(iconbtn)async
                             ),
                           ],
                         ),
-                              SizedBox(height: 20,),
+                              
+                      ],
+                    ),
+                    SizedBox(height: 20,),
                             Padding(
                               padding: const EdgeInsets.symmetric(horizontal: 12),
                               child: Text(
-                              widget.price,
+                               "Rp.${widget.price}",
                               textAlign: TextAlign.left,
                               style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
@@ -254,11 +257,11 @@ void Bookmarkadd(iconbtn)async
                             ),
                           ),
                         ),
-                        SizedBox(height: 20,),
+                    SizedBox(height: 20,),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Text(
-                            widget.pages,
+                            "${widget.pages} Halaman",
                             textAlign: TextAlign.left,
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
@@ -267,8 +270,6 @@ void Bookmarkadd(iconbtn)async
                             ),
                           ),
                         ),
-                      ],
-                    ),
                     SizedBox(height: 30,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
