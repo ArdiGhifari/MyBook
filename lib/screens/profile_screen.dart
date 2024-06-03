@@ -24,6 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     userinitial=username!.isNotEmpty?username![0].toUpperCase():"Un";
     super.initState();
   }
+  
   Widget build(BuildContext context) {
     // ignore: deprecated_member_use
     return WillPopScope(

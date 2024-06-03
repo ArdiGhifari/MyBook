@@ -20,7 +20,6 @@ abstract class LocationService {
     }
     if (permission == LocationPermission.deniedForever) {
       // Location permissions are permanently denied, we cannot request permissions.
-
       return false;
     }
     return true;
