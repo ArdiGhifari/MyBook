@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:mybook/screens/google_maps.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class DetailScreen extends StatefulWidget {
   final String price;
   final String pages;
   final Function(bool)? onBookmarkChanged;
+  // final 
   
      DetailScreen({
       required this.author,
@@ -290,6 +292,43 @@ void Bookmarkadd(iconbtn)async
                      ),
                     ),
                   ),
+                  const Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Row(
+                children: [
+                  Text(
+                    'Lokasi Penjual:',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Padding(
+            //   padding: const EdgeInsets.all(8.0),
+            //   child:
+            //       widget.latitude != null && widget.longitude != null
+            //           ? SizedBox(
+            //               height: 200,
+            //               child: GoogleMapsScreen(
+            //                 latitude: widget.latitude!,
+            //                 longitude: widget.longitude!,
+            //               ),
+            //             )
+            //           : Container(
+            //               height: 200,
+            //               color: Colors.grey[300],
+            //               child: const Center(
+            //                 child: Icon(
+            //                   Icons.location_off,
+            //                   color: Colors.grey,
+            //                   size: 50,
+            //                 ),
+            //               ),
+            //             ),
+            // ),
                   SizedBox(height: 20,),
                         ElevatedButton(
                           onPressed:(){
