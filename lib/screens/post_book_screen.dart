@@ -80,8 +80,8 @@ class _PostBookScreenState extends State<PostBookScreen> {
               'categories':selectedCategory,
               'rating':initialRating,
               'Bookmarks':[],
-              'latitude':latitude,
-              'longitude':longitude
+              'latitude':selectedLocation?.latitude,
+              'longitude':selectedLocation?.longitude
             }
           ).whenComplete((){
             setState(() {
