@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mybook/dialog/error_dialog.dart';
@@ -103,7 +104,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                                     textAlign: TextAlign.start,
                                     keyboardType: TextInputType.emailAddress,
-
                                     decoration: InputDecoration(
                                       hintText: "abc@gmail.com",
                                       border: OutlineInputBorder(
@@ -217,7 +217,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                                   if(newUser!=null)
                                   {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyBook()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                                     reset();
                                   }
                                   else
@@ -264,7 +264,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                  style: ElevatedButton.styleFrom(
 
                                  ),
-                                 ),
+                                ),
                             ),
                             SizedBox(height: 42,),
 

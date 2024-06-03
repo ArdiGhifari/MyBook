@@ -209,23 +209,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
         backgroundColor: Colors.indigo,
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: ()async{
-              try{
-                await _auth.signOut();
-                Navigator.pop(context);
-                print("User signed out");
-              }
-              catch(e){
-                print("Error signing out $e");
-              }
-            },
-             icon: Icon(
-              Icons.logout,
-              size: 30,
-              color: Colors.white,
-              )),
-
         ],
       ),
       body: SingleChildScrollView(
@@ -280,7 +263,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                     fontSize: 18,
                     color: Colors.grey.shade700,
                     fontWeight: FontWeight.w600,
-
                   ),
                   border: InputBorder.none
                 ),
@@ -305,7 +287,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                     prefixIcon: Icon(Icons.person,size: 24,color: Colors.indigo,),
-
                   ),
                 ),
               ),
@@ -351,7 +332,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                     prefixIcon: Icon(Icons.book,size: 24,color: Colors.indigo,),
-
                   ),
                 ),
               ),
