@@ -52,7 +52,7 @@ String? userinitial;
           fontSize: 20,
           fontWeight: FontWeight.w700,
           color: Colors.white
-        ),
+         ),
         ),
         centerTitle: true,
         leading: InkWell(

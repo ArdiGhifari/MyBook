@@ -176,7 +176,7 @@ class CategoryBooks extends StatelessWidget{
                 price : price,
                 pages : pages
                 ),)
-                );
+              );
 
             },
             child: Column(
@@ -225,7 +225,6 @@ class CategoryBooks extends StatelessWidget{
                   style: GoogleFonts.poppins(
                     color: Colors.black.withOpacity(0.5),
                     fontWeight: FontWeight.w500,
-
                     fontSize: 15
                   ),
                 ),
