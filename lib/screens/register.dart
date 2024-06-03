@@ -114,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                         )
                                       ),
                                       hintStyle: GoogleFonts.inter(
-                                        color: Color.fromARGB(255, 151, 55, 55),
+                                        color: Colors.grey,
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
                                         height: 1.21,
@@ -231,7 +231,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                       }
                                       );
                                   }
-
                                   setState(() {
                                     checkSpinner=false;
                                   });
