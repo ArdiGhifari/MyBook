@@ -335,8 +335,6 @@ void Bookmarkadd(iconbtn)async
                           onPressed:(){
                             final Uri whatsapp = Uri.parse('https://wa.me/${6289629018837}');
                             launchUrl(whatsapp);
-                            print(widget.latitude);
-                            print(widget.longitude);
                           },
                           child: Text('Chat Seller'),
                         ),
