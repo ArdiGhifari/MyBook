@@ -81,7 +81,7 @@ class _PostBookScreenState extends State<PostBookScreen> {
               'rating':initialRating,
               'Bookmarks':[],
               'latitude':selectedLocation?.latitude,
-              'longitude':selectedLocation?.longitude
+              'longitude':selectedLocation?.longitude,
             }
           ).whenComplete((){
             setState(() {
@@ -548,7 +548,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                           )
                         : Container(
                             alignment: Alignment.center,
-                            child: const Text('Lokasi belum dipilih'),
                           ),
                   ),
                 ),
