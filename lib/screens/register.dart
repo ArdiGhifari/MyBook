@@ -5,7 +5,6 @@ import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mybook/dialog/error_dialog.dart';
-import 'package:mybook/screens/mybook.dart';
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
