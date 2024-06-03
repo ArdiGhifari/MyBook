@@ -1,5 +1,8 @@
+import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_config/flutter_config.dart';
 import 'package:mybook/firebase_options.dart';
 import 'package:mybook/screens/home_screen.dart';
 import 'package:mybook/screens/login.dart';
@@ -10,6 +13,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  if (!kIsWeb && (Platform.isAndroid || Platform.isIOS)) {
+    await FlutterConfig.loadEnvVariables();
+  }
   runApp(const MyApp());
 }
 

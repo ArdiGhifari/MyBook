@@ -5,6 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:mybook/dialog/loading_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mybook/dialog/error_dialog.dart';
 import 'package:mybook/dialog/success_dialog.dart';
-import 'package:mybook/screens/home_screen.dart';
+import 'package:mybook/services/location_service.dart';
 
 class PostBookScreen extends StatefulWidget {
   const PostBookScreen({super.key});
@@ -30,14 +31,13 @@ class _PostBookScreenState extends State<PostBookScreen> {
   TextEditingController Price=TextEditingController();
   TextEditingController Pages=TextEditingController();
   TextEditingController Author=TextEditingController();
-
+  double initialRating=0.0;
   bool? light1=false;
-
   final ImagePicker _imagePicker = ImagePicker();
   String selectedCategory = 'Select Category';
   final _firestore=FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  double initialRating=0.0;
+  LatLng? selectedLocation;
 
   List<String> categories= ['Select Category','Comedy','Lifestyle','Sport','Thriller','Mystery'];
 
@@ -80,7 +80,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
               'Bookmarks':[]
             }
           ).whenComplete((){
-
             setState(() {
               image = null;
               textscanning = null;
@@ -147,6 +146,56 @@ class _PostBookScreenState extends State<PostBookScreen> {
       return '';
     }
   }
+
+  Future<void> _pickLocation() async {
+    try {
+      final currentPosition = await LocationService.getCurrentPosition();
+      if (currentPosition != null) {
+        setState(() {
+          selectedLocation =
+              LatLng(currentPosition.latitude, currentPosition.longitude);
+        });
+      } else {
+        // Handle the case when currentPosition is null
+        // For example, show an error message to the user
+        showDialog(
+          // ignore: use_build_context_synchronously
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Error'),
+            content: const Text('Failed to get current location.'),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text('OK'),
+              ),
+            ],
+          ),
+        );
+      }
+    } catch (e) {
+      // Handle the error, for example, show an error message to the user
+      showDialog(
+        // ignore: use_build_context_synchronously
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Error'),
+          content: Text('An error occurred while getting the location: $e'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: const Text('OK'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
 
 
   @override
@@ -459,6 +508,48 @@ class _PostBookScreenState extends State<PostBookScreen> {
                   ],
                 ),
               ),
+              Padding(
+                  padding: const EdgeInsets.all(0),
+                  child: ButtonBar(
+                    alignment: MainAxisAlignment.start,
+                    children: [
+                      ElevatedButton(
+                        onPressed: _pickLocation,
+                        style: ElevatedButton.styleFrom(
+                            minimumSize:
+                                const Size(400, 50), // Ukuran minimum tombol
+                            backgroundColor: Colors.blue),
+                        child: const Text('Ambil Lokasi Saya'),
+                      ),
+                    ],
+                  ),
+                ),
+                const Text('Lokasi'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    height: 200, // Sesuaikan tinggi sesuai kebutuhan
+                    child: selectedLocation != null
+                        ? GoogleMap(
+                            initialCameraPosition: CameraPosition(
+                              target: LatLng(selectedLocation!.latitude,
+                                  selectedLocation!.longitude),
+                              zoom: 15,
+                            ),
+                            markers: {
+                              Marker(
+                                markerId: const MarkerId('selectedLocation'),
+                                position: LatLng(selectedLocation!.latitude,
+                                    selectedLocation!.longitude),
+                              ),
+                            },
+                          )
+                        : Container(
+                            alignment: Alignment.center,
+                            child: const Text('Lokasi belum dipilih'),
+                          ),
+                  ),
+                ),
               SizedBox(height: 30,),
               SizedBox(
                 width: double.infinity,
@@ -466,7 +557,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                 child: ElevatedButton(
                   onPressed: (){
                     checkData();
-                    
                   },
                   child: Text(
                     'Upload Book',
