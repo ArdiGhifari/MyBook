@@ -77,6 +77,8 @@ class _CategoriesState extends State<Categories> {
                     final bookmarks= data!['Bookmarks'];
                     final price = data!['price'];
                     final pages = data!['pages'];
+                    final latitude = data!['latitude'];
+                    final longitude = data!['longitude'];
 
                     final messagewidget= CategoryBooks(
                       author:author,
@@ -87,7 +89,9 @@ class _CategoriesState extends State<Categories> {
                       id: docid,
                       bookmarks: bookmarks,
                       price: price,
-                      pages: pages
+                      pages: pages,
+                      latitude: latitude,
+                      longitude: longitude,
                     );
 
                     messagewidgets.add(messagewidget);
@@ -134,6 +138,8 @@ class CategoryBooks extends StatelessWidget{
   final Function(bool)? onBookmarkChanged;
   final String price;
   final String pages;
+  final double? latitude;
+  final double? longitude;
 
    CategoryBooks({
    required this.author,
@@ -145,7 +151,9 @@ class CategoryBooks extends StatelessWidget{
    required this.bookmarks,
    this.onBookmarkChanged,
    required this.price,
-   required this.pages
+   required this.pages,
+   required this.latitude,
+   required this.longitude,
    });
 
   @override
@@ -174,7 +182,9 @@ class CategoryBooks extends StatelessWidget{
                 id: id, 
                 bookmarks: bookmarks,
                 price : price,
-                pages : pages
+                pages : pages,
+                latitude: latitude,
+                longitude: longitude,
                 ),)
               );
 

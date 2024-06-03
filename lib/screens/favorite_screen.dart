@@ -57,6 +57,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                     final bookmarks= data!['Bookmarks'];
                     final price = data!['price'];
                     final pages = data!['pages'];
+                    final latitude = data!['latitude'];
+                    final longitude = data!['longitude'];
 
                     if (bookmarks.contains(user!.email!))
                     {
@@ -72,6 +74,8 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                         index:i,
                         price: price,
                         pages: pages,
+                        latitude:latitude,
+                        longitude:longitude
                     );
 
                         messagewidgets.add(messagewidget);
@@ -113,6 +117,8 @@ class Newest extends StatefulWidget {
   final int index;
   final String price;
   final String pages;
+  final double? latitude;
+  final double? longitude;
 
   const Newest({
     required this.author,
@@ -125,7 +131,9 @@ class Newest extends StatefulWidget {
     required this.checkbookmarks, 
     required this.index,
     required this.price,
-    required this.pages
+    required this.pages,
+    this.latitude,
+    this.longitude,
   });
   
   
@@ -211,6 +219,8 @@ class _NewestState extends State<Newest> {
             bookmarks: widget.bookmarks,
             price: widget.price,
             pages: widget.pages,
+            latitude: widget.latitude,
+            longitude: widget.longitude
             )),
           );
         },

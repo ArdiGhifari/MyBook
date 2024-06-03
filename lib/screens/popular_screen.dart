@@ -52,6 +52,8 @@ class _PopularBooksState extends State<PopularBooks> {
                     final bookmarks=message.data()['Bookmarks'];
                     final price=message.data()['price'];
                     final pages=message.data()['pages'];
+                    final latitude=message.data()['latitude'];
+                    final longitude=message.data()['longitude'];
 
                     final messagewidget=PopularBook(
                       author:author,
@@ -62,7 +64,9 @@ class _PopularBooksState extends State<PopularBooks> {
                       id: docid,
                       bookmarks : bookmarks,
                       price: price,
-                      pages: pages
+                      pages: pages,
+                      latitude:latitude,
+                      longitude:longitude,
                     );
                     messagewidgets.add(messagewidget);
                   }
@@ -98,6 +102,8 @@ class PopularBook extends StatelessWidget{
   final List<dynamic> bookmarks;
   final String price;
   final String pages;
+  final double? latitude;
+  final double? longitude;
   
   PopularBook({
     required this.author,
@@ -108,7 +114,9 @@ class PopularBook extends StatelessWidget{
     required this.id,
     required this.bookmarks,
     required this.price,
-    required this.pages
+    required this.pages,
+    this.latitude,
+    this.longitude,
   });
 
 
@@ -132,6 +140,8 @@ Widget build(BuildContext context){
             bookmarks:bookmarks,
             price:price,
             pages:pages,
+            latitude: latitude,
+            longitude: longitude,
           ),)
           );
         },

@@ -36,8 +36,8 @@ class DetailScreen extends StatefulWidget {
       required this.price,
       required this.pages,
       this.onBookmarkChanged,
-      this.latitude,
-      this.longitude,
+      required this.latitude,
+      required this.longitude,
     });
 
   @override
@@ -196,7 +196,6 @@ void Bookmarkadd(iconbtn)async
                     textAlign: TextAlign.left,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w700,
-
                       fontSize: 40,
                     ),
                   ),
@@ -336,6 +335,8 @@ void Bookmarkadd(iconbtn)async
                           onPressed:(){
                             final Uri whatsapp = Uri.parse('https://wa.me/${6289629018837}');
                             launchUrl(whatsapp);
+                            print(widget.latitude);
+                            print(widget.longitude);
                           },
                           child: Text('Chat Seller'),
                         ),
