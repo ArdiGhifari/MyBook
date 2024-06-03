@@ -22,8 +22,8 @@ class DetailScreen extends StatefulWidget {
   final String price;
   final String pages;
   final Function(bool)? onBookmarkChanged;
-  double? longitude;
-  double? latitude;
+  final double? latitude;
+  final double? longitude;
   
      DetailScreen({
       required this.author,
@@ -36,8 +36,8 @@ class DetailScreen extends StatefulWidget {
       required this.price,
       required this.pages,
       this.onBookmarkChanged,
-      this.longitude,
       this.latitude,
+      this.longitude,
     });
 
   @override
