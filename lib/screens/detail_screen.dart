@@ -22,7 +22,8 @@ class DetailScreen extends StatefulWidget {
   final String price;
   final String pages;
   final Function(bool)? onBookmarkChanged;
-  // final 
+  double? longitude;
+  double? latitude;
   
      DetailScreen({
       required this.author,
@@ -34,7 +35,9 @@ class DetailScreen extends StatefulWidget {
       required this.bookmarks,
       required this.price,
       required this.pages,
-      this.onBookmarkChanged
+      this.onBookmarkChanged,
+      this.longitude,
+      this.latitude,
     });
 
   @override
@@ -306,29 +309,29 @@ void Bookmarkadd(iconbtn)async
                 ],
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child:
-            //       widget.latitude != null && widget.longitude != null
-            //           ? SizedBox(
-            //               height: 200,
-            //               child: GoogleMapsScreen(
-            //                 latitude: widget.latitude!,
-            //                 longitude: widget.longitude!,
-            //               ),
-            //             )
-            //           : Container(
-            //               height: 200,
-            //               color: Colors.grey[300],
-            //               child: const Center(
-            //                 child: Icon(
-            //                   Icons.location_off,
-            //                   color: Colors.grey,
-            //                   size: 50,
-            //                 ),
-            //               ),
-            //             ),
-            // ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child:
+                  widget.latitude != null && widget.longitude != null
+                      ? SizedBox(
+                          height: 200,
+                          child: GoogleMapsScreen(
+                            latitude: widget.latitude!,
+                            longitude: widget.longitude!,
+                          ),
+                        )
+                      : Container(
+                          height: 200,
+                          color: Colors.grey[300],
+                          child: const Center(
+                            child: Icon(
+                              Icons.location_off,
+                              color: Colors.grey,
+                              size: 50,
+                            ),
+                          ),
+                        ),
+            ),
                   SizedBox(height: 20,),
                         ElevatedButton(
                           onPressed:(){

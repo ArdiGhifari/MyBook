@@ -58,7 +58,7 @@ class ErrorDialog extends StatelessWidget {
                         Navigator.pop(context);
                       },
                     child: Text(
-                      "Okeyy",
+                      "Okay",
                     ),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),

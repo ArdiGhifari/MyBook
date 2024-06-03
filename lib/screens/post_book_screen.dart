@@ -31,6 +31,8 @@ class _PostBookScreenState extends State<PostBookScreen> {
   TextEditingController Price=TextEditingController();
   TextEditingController Pages=TextEditingController();
   TextEditingController Author=TextEditingController();
+  double latitude = 0.0;
+  double longitude = 0.0;
   double initialRating=0.0;
   bool? light1=false;
   final ImagePicker _imagePicker = ImagePicker();
@@ -77,7 +79,9 @@ class _PostBookScreenState extends State<PostBookScreen> {
               'isPopular': light1,
               'categories':selectedCategory,
               'rating':initialRating,
-              'Bookmarks':[]
+              'Bookmarks':[],
+              'latitude':latitude,
+              'longitude':longitude
             }
           ).whenComplete((){
             setState(() {
@@ -197,7 +201,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
   }
 
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -250,7 +253,6 @@ class _PostBookScreenState extends State<PostBookScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                     prefixIcon: Icon(Icons.book_outlined,size: 24,color: Colors.indigo),
-
 
                   ),
                 ),
